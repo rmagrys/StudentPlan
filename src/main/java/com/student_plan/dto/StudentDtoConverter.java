@@ -3,9 +3,9 @@ package com.student_plan.dto;
 
 import com.student_plan.entity.Student;
 
-public class StudnetDtoConverter {
+public class StudentDtoConverter {
 
-    static StudentDto toDto(Student student){
+    public static StudentDto toDto(Student student){
 
         StudentDto studentDto = new StudentDto();
 

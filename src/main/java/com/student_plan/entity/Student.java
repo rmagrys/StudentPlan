@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -23,13 +22,15 @@ public class Student {
     private Long id;
 
     @Column
-    @Size(min = 3, max = 60)
+    @Size(min = 3, max = 60, message = "First name not valid")
     private String firstName;
 
     @Column
+    @Size(min = 3, max = 60, message = "Last name not valid")
     private String lastName;
 
     @Column
+    @Size(min = 5, max = 50, message = " Email not valid")
     @Email
     private String mail;
 }
