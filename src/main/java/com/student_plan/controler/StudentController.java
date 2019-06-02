@@ -5,10 +5,7 @@ import com.student_plan.dto.StudentDtoConverter;
 import com.student_plan.entity.Student;
 import com.student_plan.service.StudentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,9 +29,34 @@ public class StudentController {
     @GetMapping("/{studentId}")
     public StudentDto getOne(@PathVariable Long studentId){
         Student student = studentService
-                .getStudentById(studentId)
-                .orElse(new Student());
+                .getStudentById(studentId);
+
 
         return StudentDtoConverter.toDto(student);
     }
+
+    @PostMapping
+    public StudentDto addNewStudent(@RequestBody StudentDto studentDto){
+        Student student = StudentDtoConverter.toEntity(studentDto);
+
+        return StudentDtoConverter
+                .toDto(studentService.saveNewStudent(student));
+
+    }
+
+    @DeleteMapping("/{studentId}")
+    public void deleteStudent(@PathVariable Long studentId){
+        studentService.deleteById(studentId);
+    }
+
+    @PatchMapping("/{studentId}")
+    public StudentDto updateStudent(
+            @PathVariable Long studentId,
+            @RequestParam(required = false) String firstName,
+            @RequestParam(required = false) String lastName,
+            @RequestParam(required = false) String mail){
+
+        return StudentDtoConverter.toDto(studentService.updateStudent(firstName, lastName, mail, studentId));
+    }
+
 }
