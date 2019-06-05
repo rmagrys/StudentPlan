@@ -2,6 +2,7 @@ package com.student_plan.service;
 
 
 import com.student_plan.entity.Student;
+import com.student_plan.expections.NotFoundException;
 import com.student_plan.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,7 @@ public class StudentService {
     }
 
     public Student getStudentById(Long id){
-        return studentRepository.findById(id).orElseThrow(() -> new RuntimeException("Unavaliable"));
+            return studentRepository.findById(id).orElseThrow(() -> new NotFoundException("User [id="+id+"] not found"));
     }
 
     public Student saveNewStudent(Student student){
@@ -27,11 +28,13 @@ public class StudentService {
     }
 
     public void deleteById(Long id){
-        studentRepository.deleteById(id);
+        studentRepository.findById(id).orElseThrow(( () -> new NotFoundException("User [id="+id+"] not found")));
     }
 
     public Student updateStudent(String firstName, String lastName, String mail, Long studentId){
-        Student studentForUpdate = studentRepository.findById(studentId).orElseThrow(() -> new RuntimeException("Unavaliable") ) ;
+        Student studentForUpdate = studentRepository
+                .findById(studentId)
+                .orElseThrow(() -> new NotFoundException("User [id="+studentId+"] not found") ) ;
         updateStudentValues(firstName, lastName, mail, studentForUpdate);
         return studentRepository.save(studentForUpdate);
     }
