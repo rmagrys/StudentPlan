@@ -20,7 +20,7 @@ public class StudentService {
     }
 
     public Student getStudentById(Long id){
-            return studentRepository.findById(id).orElseThrow(() -> new NotFoundException("User [id="+id+"] not found"));
+        return studentRepository.findById(id).orElseThrow(() -> new NotFoundException("User [id="+id+"] not found"));
     }
 
     public Student saveNewStudent(Student student){
@@ -28,13 +28,15 @@ public class StudentService {
     }
 
     public void deleteById(Long id){
-        studentRepository.findById(id).orElseThrow(( () -> new NotFoundException("User [id="+id+"] not found")));
+        studentRepository.findById(id).orElseThrow(() -> new NotFoundException("User [id="+id+"] not found"));
+        studentRepository.deleteById(id);
     }
 
     public Student updateStudent(String firstName, String lastName, String mail, Long studentId){
         Student studentForUpdate = studentRepository
                 .findById(studentId)
-                .orElseThrow(() -> new NotFoundException("User [id="+studentId+"] not found") ) ;
+                .orElseThrow(() -> new NotFoundException("User [id="+studentId+"] not found") );
+
         updateStudentValues(firstName, lastName, mail, studentForUpdate);
         return studentRepository.save(studentForUpdate);
     }

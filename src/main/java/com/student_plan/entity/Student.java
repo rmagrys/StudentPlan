@@ -1,15 +1,14 @@
 package com.student_plan.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Data
@@ -33,4 +32,8 @@ public class Student {
     @Size(min = 5, max = 50, message = " Email not valid")
     @Email
     private String mail;
+
+    @OneToMany(mappedBy = "student", fetch = FetchType.EAGER)
+    @JsonBackReference
+    private List<StudentLecture> studentLectures;
 }
