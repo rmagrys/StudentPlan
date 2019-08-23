@@ -9,6 +9,11 @@ import java.util.List;
 
 public interface StudentLectureRepository extends JpaRepository<StudentLecture,Long> {
 
-    @Query("SELECT studentLecture FROM StudentLecture studentLecture JOIN studentLecture.student student WHERE student.id = :id")
+    @Query("SELECT studentLecture FROM StudentLecture studentLecture " +
+            "JOIN studentLecture.student student WHERE student.id = :id")
     List<StudentLecture> findAllByStudentId();
+
+    @Query("SELECT studentLecture FROM StudentLecture studentLecture " +
+            "JOIN studentLecture.lecture lecture WHERE lecture.id =:id ")
+    List<StudentLecture> findAllByLectureId();
 }

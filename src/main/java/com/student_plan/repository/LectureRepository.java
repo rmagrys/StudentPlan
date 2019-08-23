@@ -9,6 +9,11 @@ import java.util.List;
 
 public interface LectureRepository extends JpaRepository<Lecture, Long> {
 
-    @Query("SELECT lecture FROM Lecture lecture WHERE lecture.lectureName = :lectureName")
-    List<Lecture> findAllByLectureNameJpql();
+    @Query("SELECT lecture FROM Lecture lecture")
+    List<Lecture> findAllLectures();
+
+    @Query("SELECT lecture FROM Lecture lecture " +
+            "WHERE lecture.lectureName = :lectureName")
+    List<Lecture> findAllByLectureName(String lectureName);
+
 }

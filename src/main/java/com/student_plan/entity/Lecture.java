@@ -19,8 +19,10 @@ public class Lecture {
     @GeneratedValue
     private Long id;
 
+    private final String message = "CONTENT_NOT_VALID";
+
     @Column
-    @Size(min=5 , max = 40, message = "lecture name not valid")
+    @Size(min=5 , max = 40, message = message)
     private String lectureName;
 
     @OneToMany(mappedBy = "lecture", fetch = FetchType.EAGER)

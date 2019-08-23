@@ -22,7 +22,7 @@ public class LectureService {
     public Lecture getLectureById(long id){
         return lectureRepository
                 .findById(id)
-                .orElseThrow(()-> new NotFoundException("Lecture [id="+id+"] not found"));
+                .orElseThrow(() -> new NotFoundException("Lecture [id="+id+"] not found"));
     }
 
     public Lecture saveNewLecture(Lecture lecture){

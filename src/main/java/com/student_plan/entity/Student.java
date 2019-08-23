@@ -20,16 +20,18 @@ public class Student {
     @GeneratedValue
     private Long id;
 
+    private final String message = "CONTENT_NOT_VALID";
+
     @Column
-    @Size(min = 3, max = 60, message = "First name not valid")
+    @Size(min = 3, max = 60, message = message)
     private String firstName;
 
     @Column
-    @Size(min = 3, max = 60, message = "Last name not valid")
+    @Size(min = 3, max = 60, message = message)
     private String lastName;
 
     @Column
-    @Size(min = 5, max = 50, message = " Email not valid")
+    @Size(min = 5, max = 50, message = message)
     @Email
     private String mail;
 

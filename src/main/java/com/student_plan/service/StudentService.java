@@ -1,8 +1,10 @@
 package com.student_plan.service;
 
 
+import com.student_plan.entity.Lecture;
 import com.student_plan.entity.Student;
 import com.student_plan.expections.NotFoundException;
+import com.student_plan.repository.LectureRepository;
 import com.student_plan.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class StudentService {
 
+    private final LectureRepository lectureRepository;
     private final StudentRepository studentRepository;
 
     public List<Student> getAllStudents() {
@@ -20,7 +23,8 @@ public class StudentService {
     }
 
     public Student getStudentById(Long id){
-        return studentRepository.findById(id).orElseThrow(() -> new NotFoundException("User [id="+id+"] not found"));
+        return studentRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("User [id="+id+"] not found"));
     }
 
     public Student saveNewStudent(Student student){
@@ -28,7 +32,8 @@ public class StudentService {
     }
 
     public void deleteById(Long id){
-        studentRepository.findById(id).orElseThrow(() -> new NotFoundException("User [id="+id+"] not found"));
+        studentRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("User [id="+id+"] not found"));
         studentRepository.deleteById(id);
     }
 

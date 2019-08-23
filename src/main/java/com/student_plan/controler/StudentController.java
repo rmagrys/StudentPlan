@@ -2,6 +2,7 @@ package com.student_plan.controler;
 
 import com.student_plan.dto.StudentDto;
 import com.student_plan.dto.StudentDtoConverter;
+import com.student_plan.entity.Lecture;
 import com.student_plan.entity.Student;
 import com.student_plan.service.StudentService;
 import lombok.RequiredArgsConstructor;
@@ -28,9 +29,7 @@ public class StudentController {
 
     @GetMapping("/{studentId}")
     public StudentDto getOne(@PathVariable Long studentId){
-        Student student = studentService
-                .getStudentById(studentId);
-
+        Student student = studentService.getStudentById(studentId);
 
         return StudentDtoConverter.toDto(student);
     }
@@ -39,8 +38,7 @@ public class StudentController {
     public StudentDto addNewStudent(@RequestBody StudentDto studentDto){
         Student student = StudentDtoConverter.toEntity(studentDto);
 
-        return StudentDtoConverter
-                .toDto(studentService.saveNewStudent(student));
+        return StudentDtoConverter.toDto(studentService.saveNewStudent(student));
 
     }
 
@@ -59,4 +57,11 @@ public class StudentController {
         return StudentDtoConverter.toDto(studentService.updateStudent(firstName, lastName, mail, studentId));
     }
 
+    @PatchMapping("/{studentId}/ascribe")
+    public StudentDto updateLecturesToStudent(
+            @PathVariable Long studentId ){
+        Student student = studentService.getStudentById(studentId);
+
+        return StudentDtoConverter.toDto(student);
+    }
 }

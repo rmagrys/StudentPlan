@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface StudentRepository extends JpaRepository<Student, Long> {
 
+    @Query("SELECT student FROM Student student " +
+            "WHERE student.firstName = :firstName")
     List<Student> getAllByFirstName(String firstName);
 
-    @Query("SELECT student FROM Student student WHERE student.firstName = :firstName")
-    List<Student> getAllByFirstNameJpql(String firstName);
 
 }

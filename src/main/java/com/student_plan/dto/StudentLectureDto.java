@@ -13,5 +13,6 @@ public class StudentLectureDto {
     private Long id;
     private Long studentId;
     private Long lectureId;
-    private boolean presence;
+    private Boolean presence;
+
 }
