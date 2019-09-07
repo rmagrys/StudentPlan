@@ -50,7 +50,7 @@ public class StudentLectureService {
                     new NotFoundException("Lecture [id=" + lectureId + "] not found")
                 );
 
-        return SaveStatus(user,lecture,presence);
+        return SaveStatus(user, lecture, presence);
     }
 
     private Long SaveStatus(User user, Lecture lecture, Boolean presence){

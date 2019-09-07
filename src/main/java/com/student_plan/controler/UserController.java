@@ -5,6 +5,7 @@ import com.student_plan.dto.UserDtoConverter;
 import com.student_plan.entity.User;
 import com.student_plan.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public List<UserDto> getAll() {
         return userService
                 .getAllUsers()
@@ -27,6 +29,7 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
+    @PreAuthorize("hasRole('ADMIN')")
     public UserDto getOne(@PathVariable Long userId){
         User user = userService.getUserById(userId);
 

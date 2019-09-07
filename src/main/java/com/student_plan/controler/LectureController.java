@@ -6,6 +6,8 @@ import com.student_plan.dto.LectureDtoConverter;
 import com.student_plan.entity.Lecture;
 import com.student_plan.service.LectureService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,7 +21,9 @@ public class LectureController {
     private final LectureService lectureService;
 
     @GetMapping
+    @PreAuthorize("isAuthenticated()")
     public List<LectureDto> getAll(){
+
         return lectureService
                 .getAllLectures()
                 .stream()
@@ -28,6 +32,7 @@ public class LectureController {
     }
 
     @GetMapping("/{lectureId}")
+    @PreAuthorize("isAuthenticated()")
     public LectureDto getOne(@PathVariable Long lectureId){
         Lecture lecture = lectureService.getLectureById(lectureId);
 
