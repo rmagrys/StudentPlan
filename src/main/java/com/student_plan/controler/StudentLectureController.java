@@ -1,21 +1,17 @@
 package com.student_plan.controler;
 
-import com.student_plan.dto.*;
-import com.student_plan.entity.Lecture;
-import com.student_plan.entity.Student;
+import com.student_plan.dto.StudentLectureDto;
+import com.student_plan.dto.StudentLectureDtoConverter;
 import com.student_plan.entity.StudentLecture;
-import com.student_plan.service.LectureService;
 import com.student_plan.service.StudentLectureService;
-import com.student_plan.service.StudentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/studentLecture")
+@RequestMapping("/student-lecture")
 @RequiredArgsConstructor
 public class StudentLectureController {
 
@@ -30,6 +26,11 @@ public class StudentLectureController {
                 .map(StudentLectureDtoConverter::toDto)
                 .collect(Collectors.toList());
     }
+    @GetMapping("/{studentLectureId}")
+    public StudentLectureDto getOne(@PathVariable Long studentLectureId){
+        StudentLecture studentLecture = studentLectureService.findOneById(studentLectureId);
+        return StudentLectureDtoConverter.toDto(studentLecture);
+    }
 
     @PostMapping
     public StudentLectureDto addNewStudentLecture(@RequestBody StudentLectureDto studentLectureDto){
@@ -41,7 +42,7 @@ public class StudentLectureController {
     public Long addNewStudentLectureDependency(
              @PathVariable Long lectureId,
              @PathVariable Long studentId,
-             @RequestParam(value = "true" ,required = true) boolean presence){
+             @RequestParam(value = "present") boolean presence){
 
         return studentLectureService.registerStudentLectureDependency(lectureId, studentId, presence);
 

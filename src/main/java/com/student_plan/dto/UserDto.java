@@ -12,12 +12,12 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudentDto {
+public class UserDto {
 
     private Long id;
     private String firstName;
     private String lastName;
     private String mail;
-    private List<StudentLecture> studentLectures;
+    private List<StudentLectureDto> studentLecturesDto;
 
 }

@@ -1,7 +1,6 @@
 package com.student_plan.dto;
 
 
-import com.student_plan.entity.Lecture;
 import com.student_plan.entity.StudentLecture;
 
 public class StudentLectureDtoConverter {
@@ -11,8 +10,8 @@ public class StudentLectureDtoConverter {
         StudentLectureDto studentLectureDto = new StudentLectureDto();
 
         studentLectureDto.setId(studentLecture.getId());
- /*       studentLectureDto.setLectureId(studentLecture.getLecture().getId());
-        studentLectureDto.setStudentId(studentLecture.getStudent().getId());*/
+        studentLectureDto.setLectureId(studentLecture.getLecture().getId());
+        studentLectureDto.setStudentId(studentLecture.getUser().getId());
         studentLectureDto.setPresence(studentLecture.getPresence());
 
 

@@ -19,8 +19,8 @@ public class StudentLecture {
     @GeneratedValue
     private Long id;
 
-    @ManyToOne(targetEntity = Student.class)
-    private Student student;
+    @ManyToOne(targetEntity = User.class)
+    private User user;
 
     @ManyToOne(targetEntity = Lecture.class)
     private Lecture lecture;

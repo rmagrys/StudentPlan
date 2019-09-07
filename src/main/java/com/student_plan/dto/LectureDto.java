@@ -14,6 +14,6 @@ public class LectureDto {
 
     private Long id;
     private String lectureName;
-    private List<StudentLecture> studentLectures;
+    private List<StudentLectureDto> studentLecturesDto;
 
 }

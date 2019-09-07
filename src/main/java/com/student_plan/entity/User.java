@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.aspectj.bridge.IMessage;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -14,7 +15,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Student {
+public class User {
 
     @Id
     @GeneratedValue
@@ -35,7 +36,15 @@ public class Student {
     @Email
     private String mail;
 
-    @OneToMany(mappedBy = "student", fetch = FetchType.EAGER)
+    @Column
+    @Size(min = 5, max = 50, message = message)
+    private char[] password;
+
+    @Enumerated(EnumType.STRING)
+    private Type type;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     @JsonBackReference
     private List<StudentLecture> studentLectures;
+
 }

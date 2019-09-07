@@ -3,9 +3,7 @@ package com.student_plan.controler;
 
 import com.student_plan.dto.LectureDto;
 import com.student_plan.dto.LectureDtoConverter;
-import com.student_plan.dto.StudentDto;
 import com.student_plan.entity.Lecture;
-import com.student_plan.entity.Student;
 import com.student_plan.service.LectureService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
