@@ -38,8 +38,7 @@ public class LectureController {
     public LectureDto addNewLecture(@RequestBody LectureDto lectureDto){
         Lecture lecture = LectureDtoConverter.toEntity(lectureDto);
 
-        return LectureDtoConverter
-                .toDto(lectureService.saveNewLecture(lecture));
+        return LectureDtoConverter.toDto(lectureService.saveNewLecture(lecture));
     }
 
     @DeleteMapping("/{lectureId")

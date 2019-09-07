@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class StudentLectureDto {
 
     private Long id;
-    private Long studentId;
+    private Long userId;
     private Long lectureId;
     private Boolean presence;
 

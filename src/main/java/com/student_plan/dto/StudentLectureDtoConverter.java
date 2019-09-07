@@ -11,7 +11,7 @@ public class StudentLectureDtoConverter {
 
         studentLectureDto.setId(studentLecture.getId());
         studentLectureDto.setLectureId(studentLecture.getLecture().getId());
-        studentLectureDto.setStudentId(studentLecture.getUser().getId());
+        studentLectureDto.setUserId(studentLecture.getUser().getId());
         studentLectureDto.setPresence(studentLecture.getPresence());
 
 

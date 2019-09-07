@@ -18,7 +18,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ErrorResponse notFoundHandler(NotFoundException notFoundException){
         log.info("UNAVAILABLE | " + notFoundException.getMessage());
-        return new ErrorResponse(404,notFoundException.getMessage());
+        return new ErrorResponse(404, notFoundException.getMessage());
     }
 }
 

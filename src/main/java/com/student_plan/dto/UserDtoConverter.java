@@ -29,7 +29,6 @@ public class UserDtoConverter {
         user.setMail(userDto.getMail());
 
         return user;
-
     }
 
     public static UserDto allToDto(User user){
@@ -40,11 +39,13 @@ public class UserDtoConverter {
         userDto.setFirstName(user.getFirstName());
         userDto.setLastName(user.getFirstName());
         userDto.setMail(user.getMail());
-        userDto.setStudentLecturesDto(user
-                .getStudentLectures()
-                .stream()
-                .map(StudentLectureDtoConverter::toDto)
-                .collect(Collectors.toList()));
+        userDto.setStudentLecturesDto(
+                user
+                    .getStudentLectures()
+                    .stream()
+                    .map(StudentLectureDtoConverter::toDto)
+                    .collect(Collectors.toList())
+        );
 
         return userDto;
     }

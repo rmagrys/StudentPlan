@@ -15,14 +15,14 @@ import java.util.List;
 @NoArgsConstructor
 public class Lecture {
 
+    private final static String MESSAGE = "CONTENT_NOT_VALID";
+
     @Id
     @GeneratedValue
     private Long id;
 
-    private final String message = "CONTENT_NOT_VALID";
-
     @Column
-    @Size(min=5 , max = 40, message = message)
+    @Size(min=5 , max = 40, message = Lecture.MESSAGE)
     private String lectureName;
 
     @OneToMany(mappedBy = "lecture", fetch = FetchType.EAGER)

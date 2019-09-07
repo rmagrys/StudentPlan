@@ -17,7 +17,6 @@ public class StudentLectureController {
 
     private final StudentLectureService studentLectureService;
 
-
     @GetMapping
     public List<StudentLectureDto> getAll(){
         return studentLectureService
@@ -45,8 +44,5 @@ public class StudentLectureController {
              @RequestParam(value = "present") boolean presence){
 
         return studentLectureService.registerStudentLectureDependency(lectureId, studentId, presence);
-
-
-
     }
 }

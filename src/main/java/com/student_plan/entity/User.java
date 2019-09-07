@@ -44,7 +44,5 @@ public class User {
     private Type type;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    @JsonBackReference
     private List<StudentLecture> studentLectures;
-
 }

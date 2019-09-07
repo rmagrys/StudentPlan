@@ -23,7 +23,9 @@ public class UserService {
 
     public User getUserById(Long id){
         return userRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("User [id="+id+"] not found"));
+                .orElseThrow(() ->
+                    new NotFoundException("User [id=" + id + "] not found")
+                );
     }
 
     public User saveNewUser(User user){
@@ -31,17 +33,24 @@ public class UserService {
     }
 
     public void deleteById(Long id){
-        userRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("User [id="+id+"] not found"));
+        userRepository
+                .findById(id)
+                .orElseThrow(() ->
+                    new NotFoundException("User [id=" + id + "] not found")
+                );
+
         userRepository.deleteById(id);
     }
 
     public User updateUser(String firstName, String lastName, String mail, Long id){
         User userForUpdate = userRepository
                 .findById(id)
-                .orElseThrow(() -> new NotFoundException("User [id="+id+"] not found") );
+                .orElseThrow(() ->
+                    new NotFoundException("User [id=" + id + "] not found")
+                );
 
         updateUserValues(firstName, lastName, mail, userForUpdate);
+
         return userRepository.save(userForUpdate);
     }
 
@@ -53,6 +62,5 @@ public class UserService {
             user.setLastName(lastName);
         if(mail != null)
             user.setMail(mail);
-
     }
 }

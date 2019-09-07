@@ -40,10 +40,15 @@ public class StudentLectureService {
     public Long registerStudentLectureDependency(Long lectureId, Long studentId, boolean presence) {
         User user = userRepository
                 .findById(studentId)
-                .orElseThrow(()-> new NotFoundException("User [id="+studentId+"] not found"));
+                .orElseThrow(() ->
+                    new NotFoundException("User [id=" + studentId + "] not found")
+                );
+
         Lecture lecture = lectureRepository
                 .findById(lectureId)
-                .orElseThrow(()-> new NotFoundException("Lecture [id="+lectureId+"] not found"));
+                .orElseThrow(() ->
+                    new NotFoundException("Lecture [id=" + lectureId + "] not found")
+                );
 
         return SaveStatus(user,lecture,presence);
     }
@@ -62,6 +67,8 @@ public class StudentLectureService {
     public StudentLecture findOneById(Long studentLectureId){
         return studentLectureRepository
                 .findById(studentLectureId)
-                .orElseThrow(()-> new NotFoundException("Dependency [id="+studentLectureId+"] not found"));
+                .orElseThrow(() ->
+                    new NotFoundException("Dependency [id=" + studentLectureId + "] not found")
+                );
     }
 }
