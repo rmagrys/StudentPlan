@@ -1,17 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b40c2dd-779a-4ef8-bd62-c2ca972ef2aa" name="Default Changelist" comment="" />
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored path="$PROJECT_DIR$/target/" />
+    <list default="true" id="9b40c2dd-779a-4ef8-bd62-c2ca972ef2aa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/Type.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/LectureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/LectureController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/StudentLectureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/StudentLectureController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/LectureDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/LectureDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/StudentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/StudentDtoConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/UserDtoConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/StudentLectureDtoConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/StudentLectureDtoConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/StudentLecture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/StudentLecture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/repository/StudentLectureRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/repository/StudentLectureRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/repository/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/service/StudentLectureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/service/StudentLectureService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/StudentPlanApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/UserPlanApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="AnnotationType" />
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>del</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -20,89 +70,34 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="240" />
-    <option name="y" value="10" />
-    <option name="width" value="1620" />
-    <option name="height" value="1010" />
-  </component>
+  <component name="ProjectId" id="1OYPB1SnkPmBJoVAK76KdX5NgKq" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="student-plan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StudentPlan" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="student-plan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StudentPlan" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="student-plan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StudentPlan" type="462c0819:PsiDirectoryNode" />
-              <item name=".mvn" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="student-plan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StudentPlan" type="462c0819:PsiDirectoryNode" />
-              <item name=".mvn" type="462c0819:PsiDirectoryNode" />
-              <item name="wrapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="student-plan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StudentPlan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="student-plan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StudentPlan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="student-plan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StudentPlan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="student-plan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StudentPlan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="student_plan" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="student-plan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StudentPlan" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-    </panes>
-  </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../projekty java" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="copyright" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.student_plan.controler" />
+      <recent name="com.student_plan.entity" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -136,51 +131,53 @@
       <option name="presentableId" value="Default" />
       <updated>1558368089968</updated>
       <workItem from="1558368091282" duration="492000" />
+      <workItem from="1558369417609" duration="928000" />
+      <workItem from="1558605786216" duration="543000" />
+      <workItem from="1558869822934" duration="2102000" />
+      <workItem from="1558872463785" duration="4318000" />
+      <workItem from="1559247432764" duration="1080000" />
+      <workItem from="1559477329419" duration="2601000" />
+      <workItem from="1559480398701" duration="2537000" />
+      <workItem from="1559492908670" duration="2183000" />
+      <workItem from="1559744214587" duration="7520000" />
+      <workItem from="1559753413062" duration="78000" />
+      <workItem from="1559764984242" duration="3510000" />
+      <workItem from="1559983715709" duration="649000" />
+      <workItem from="1560685656453" duration="2797000" />
+      <workItem from="1560951064225" duration="365000" />
+      <workItem from="1561484362596" duration="287000" />
+      <workItem from="1561494423363" duration="256000" />
+      <workItem from="1563015313901" duration="24000" />
+      <workItem from="1563015406611" duration="318000" />
+      <workItem from="1563125369293" duration="6557000" />
+      <workItem from="1563205408605" duration="6271000" />
+      <workItem from="1564151025041" duration="261000" />
+      <workItem from="1564151430042" duration="21508000" />
+      <workItem from="1564583420581" duration="6677000" />
+      <workItem from="1564831576853" duration="15661000" />
+      <workItem from="1566071370383" duration="656000" />
+      <workItem from="1566075136666" duration="1863000" />
+      <workItem from="1566500115563" duration="7284000" />
+      <workItem from="1566579970020" duration="12142000" />
+      <workItem from="1567707627032" duration="4595000" />
+      <workItem from="1567868569245" duration="270000" />
     </task>
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="492000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
-    <layout>
-      <window_info id="Designer" />
-      <window_info id="Image Layers" />
-      <window_info id="Capture Tool" />
-      <window_info id="UI Designer" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info id="Web" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Spring" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Java Enterprise" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Key Promoter X" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Bean Validation" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
