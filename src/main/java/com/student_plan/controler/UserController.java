@@ -12,24 +12,24 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/students")
+@RequestMapping("/api/users")
 @RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;
 
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<UserDto> getAll() {
         return userService
                 .getAllUsers()
                 .stream()
-                .map(UserDtoConverter::toDto)
+                .map(UserDtoConverter::allToDto)
                 .collect(Collectors.toList());
     }
 
     @GetMapping("/{userId}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ADMINNNNNN', 'ADMIN')")
     public UserDto getOne(@PathVariable Long userId){
         User user = userService.getUserById(userId);
 
@@ -37,12 +37,15 @@ public class UserController {
     }
 
     @GetMapping("/{userId}/presences")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public UserDto getOneWithPresences(@PathVariable Long userId){
         User user = userService.getUserById(userId);
 
         return UserDtoConverter.allToDto(user);
     }
+
     @PostMapping
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
     public UserDto addNewUser(@RequestBody UserDto userDto){
         User user = UserDtoConverter.toEntity(userDto);
 
@@ -51,11 +54,13 @@ public class UserController {
     }
 
     @DeleteMapping("/{userId}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void deleteUser(@PathVariable Long userId){
         userService.deleteById(userId);
     }
 
     @PatchMapping("/{userId}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public UserDto updateUser(
             @PathVariable Long userId,
             @RequestParam(required = false) String firstName,
@@ -64,6 +69,18 @@ public class UserController {
 
         return UserDtoConverter.toDto(userService.updateUser(firstName, lastName, mail, userId));
     }
+
+    @PatchMapping("/password/{userId}")
+    @PreAuthorize("hasAnyAuthority('STUDENT','ADMIN')")
+    public UserDto updateUserPassword(
+            @PathVariable Long userId,
+            @RequestParam char[] oldPassword,
+            @RequestParam char[] newPassword){
+
+
+        return UserDtoConverter.toDto(userService.updateUserPassword(oldPassword, newPassword, userId));
+    }
+
 
     @PatchMapping("/{userId}/ascribe")
     public UserDto updateLecturesToStudent(

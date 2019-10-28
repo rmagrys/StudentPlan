@@ -25,6 +25,8 @@ public class Lecture {
     @Size(min=5 , max = 40, message = Lecture.MESSAGE)
     private String lectureName;
 
+
+
     @OneToMany(mappedBy = "lecture", fetch = FetchType.EAGER)
     @JsonBackReference
     private List<StudentLecture> studentLectures;

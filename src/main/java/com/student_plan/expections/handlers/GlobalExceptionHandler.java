@@ -1,5 +1,6 @@
 package com.student_plan.expections.handlers;
 
+import com.student_plan.expections.BadRequestException;
 import com.student_plan.expections.NotFoundException;
 
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +20,13 @@ public class GlobalExceptionHandler {
     public ErrorResponse notFoundHandler(NotFoundException notFoundException){
         log.info("UNAVAILABLE | " + notFoundException.getMessage());
         return new ErrorResponse(404, notFoundException.getMessage());
+    }
+
+    @ExceptionHandler(BadRequestException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorResponse badRequestHandler(BadRequestException badRequestException){
+        log.info("BAD_REQUEST | " + badRequestException.getMessage());
+        return new ErrorResponse(400, badRequestException.getMessage());
     }
 }
 

@@ -7,14 +7,13 @@ import com.student_plan.entity.Lecture;
 import com.student_plan.service.LectureService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/lectures")
+@RequestMapping("/api/lectures")
 @RequiredArgsConstructor
 public class LectureController {
 
@@ -60,3 +59,4 @@ public class LectureController {
     }
 
 }
+

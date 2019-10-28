@@ -5,15 +5,16 @@ import com.student_plan.dto.StudentLectureDtoConverter;
 import com.student_plan.entity.StudentLecture;
 import com.student_plan.service.StudentLectureService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/student-lecture")
+@RequestMapping("/api/student-lecture")
 @RequiredArgsConstructor
-public class StudentLectureController {
+public class  StudentLectureController {
 
     private final StudentLectureService studentLectureService;
 
@@ -38,6 +39,7 @@ public class StudentLectureController {
     }
 
     @PostMapping("lecture/{lectureId}/student/{studentId}/ascribe")
+    @PreAuthorize("hasAnyAuthority('STUDENT','ADMIN')")
     public Long addNewStudentLectureDependency(
              @PathVariable Long lectureId,
              @PathVariable Long studentId,

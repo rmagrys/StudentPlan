@@ -15,6 +15,8 @@ public class UserDtoConverter {
         userDto.setFirstName(user.getFirstName());
         userDto.setLastName(user.getLastName());
         userDto.setMail(user.getMail());
+        userDto.setType(user.getType());
+        userDto.setEnabled(user.isEnabled());
 
         return userDto;
     }
@@ -27,6 +29,8 @@ public class UserDtoConverter {
         user.setFirstName(userDto.getFirstName());
         user.setLastName(userDto.getLastName());
         user.setMail(userDto.getMail());
+        user.setType(userDto.getType());
+        user.setPassword(userDto.getPassword());
 
         return user;
     }
@@ -39,6 +43,8 @@ public class UserDtoConverter {
         userDto.setFirstName(user.getFirstName());
         userDto.setLastName(user.getFirstName());
         userDto.setMail(user.getMail());
+        userDto.setType(user.getType());
+        userDto.setPassword(userDto.getPassword());
         userDto.setStudentLecturesDto(
                 user
                     .getStudentLectures()

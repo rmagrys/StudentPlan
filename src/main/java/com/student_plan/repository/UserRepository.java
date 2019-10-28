@@ -12,4 +12,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
             "WHERE user.firstName = :firstName")
     List<User> getAllByFirstName(String firstName);
 
+    User getByFirstName(String firstName);
+
 }

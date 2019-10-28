@@ -2,20 +2,26 @@ package com.student_plan.service;
 
 
 import com.student_plan.entity.User;
+import com.student_plan.expections.BadRequestException;
 import com.student_plan.expections.NotFoundException;
 import com.student_plan.repository.LectureRepository;
 import com.student_plan.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.nio.CharBuffer;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class UserService {
 
-    private final LectureRepository lectureRepository;
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
@@ -29,6 +35,9 @@ public class UserService {
     }
 
     public User saveNewUser(User user){
+        CharBuffer passwordBuffer = CharBuffer.wrap(user.getPassword());
+        user.setPassword(passwordEncoder.encode(passwordBuffer).toCharArray());
+
         return userRepository.save(user);
     }
 
@@ -63,4 +72,47 @@ public class UserService {
         if(mail != null)
             user.setMail(mail);
     }
+
+    public User updateUserPassword(char[] oldPassword, char[] newPassword, Long userId) {
+
+        User userForUpdatePassword = userRepository
+                .findById(userId)
+                .orElseThrow(() ->
+                        new NotFoundException("User [id=" + userId + "] not found")
+                );
+
+        if(isCurrentUserEqualToChangingUser(userForUpdatePassword)) {
+            changeUserPassword(newPassword, oldPassword, userForUpdatePassword);
+        } else throw new BadRequestException("User [id" + userId + "] is not logged user");
+
+
+        return userRepository.save(userForUpdatePassword);
+    }
+
+    private void changeUserPassword(char[] newPassword, char[] oldPassword, User userForUpdatePassword) {
+
+        final CharBuffer oldPassBuffer = CharBuffer.wrap(oldPassword);
+        final char[] encodedOldPassword = passwordEncoder.encode(oldPassBuffer).toCharArray();
+
+        if(Arrays.equals(encodedOldPassword, userForUpdatePassword.getPassword())){
+            userForUpdatePassword.setPassword(newPassword);
+        } else {
+            throw new BadRequestException("User old password is incorrect");
+        }
+    }
+
+    private boolean isCurrentUserEqualToChangingUser(User userForUpdate){
+        Object user = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String mail;
+
+        if(user instanceof UserDetails) {
+            mail = ((UserDetails)user).getUsername();
+        } else {
+            mail = user.toString();
+        }
+
+        return userForUpdate.getMail().equals(mail);
+    }
 }
+
+
