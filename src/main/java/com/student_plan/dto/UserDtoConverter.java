@@ -41,7 +41,7 @@ public class UserDtoConverter {
 
         userDto.setId(user.getId());
         userDto.setFirstName(user.getFirstName());
-        userDto.setLastName(user.getFirstName());
+        userDto.setLastName(user.getLastName());
         userDto.setMail(user.getMail());
         userDto.setType(user.getType());
         userDto.setPassword(userDto.getPassword());

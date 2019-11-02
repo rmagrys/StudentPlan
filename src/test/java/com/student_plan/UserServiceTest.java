@@ -46,7 +46,7 @@ class UserServiceTest extends AbstractTest {
         userRepository.save(user);
 
         //when
-        final List<User> singletonUser = userRepository.findAll();
+        final List<User> singletonUser = userService.getAllUsers();
 
         //then
         assertThat(singletonUser.get(0).getFirstName(), equalTo("firstName"));

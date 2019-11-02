@@ -3,6 +3,7 @@ package com.student_plan.dto;
 
 import com.student_plan.entity.Type;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +11,7 @@ import java.util.List;
 
 
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDto {

@@ -7,6 +7,7 @@ import com.student_plan.expections.NotFoundException;
 import com.student_plan.repository.LectureRepository;
 import com.student_plan.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Example;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
