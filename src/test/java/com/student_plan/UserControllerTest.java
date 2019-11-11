@@ -1,36 +1,26 @@
 package com.student_plan;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.student_plan.dto.UserDto;
-import com.student_plan.dto.UserDtoConverter;
 import com.student_plan.entity.User;
 import com.student_plan.repository.UserRepository;
 import com.student_plan.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static net.bytebuddy.matcher.ElementMatchers.whereNone;
-import static org.hamcrest.MatcherAssert.assertThat;
-
 import static com.student_plan.entity.Type.STUDENT;
-import static net.bytebuddy.matcher.ElementMatchers.is;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @AutoConfigureMockMvc
 class UserControllerTest extends AbstractTest {
 
-    @MockBean
+    @Autowired
     UserService userService;
 
     @Autowired
@@ -130,19 +120,20 @@ class UserControllerTest extends AbstractTest {
                 STUDENT,
                 true);
 
-        /*userRepository.save(user);*/
+        userRepository.save(user);
 
         mvc.perform(
-               get("/api/users/1")
+               get("/api/users/5")
                         .content(TestUtils.convertObjectsToJsonBytes(user))
                         .contentType(MediaType.APPLICATION_JSON)
         )
                 .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id", equalTo(5)))
                 .andExpect(jsonPath("$.firstName", equalTo("firstName")))
                 .andExpect(jsonPath("$.lastName", equalTo("lastName")))
                 .andExpect(jsonPath("$.mail", equalTo("mail@mail.com")))
                 .andExpect(jsonPath("$.password", equalTo(null)))
-                .andExpect(jsonPath("$.type", equalTo(STUDENT)))
+                .andExpect(jsonPath("$.type", equalTo("STUDENT")))
                 .andExpect(jsonPath("$.enabled", equalTo(true)));
     }
 
@@ -166,8 +157,6 @@ class UserControllerTest extends AbstractTest {
                         .content(TestUtils.convertObjectsToJsonBytes(user))
                         .contentType(MediaType.APPLICATION_JSON)
         )
-
-
                         .andExpect(status().isOk())
                          .andExpect(jsonPath("$.firstName", equalTo("firstName")))
                          .andExpect(jsonPath("$.lastName", equalTo("lastName")))
@@ -176,7 +165,40 @@ class UserControllerTest extends AbstractTest {
                          .andExpect(jsonPath("$.type", equalTo("STUDENT")))
                          .andExpect(jsonPath("$.enabled", equalTo(true)));
 
-
         }
 
+    @Test
+    @WithMockUser(authorities = "ADMIN")
+     void deleteUser_Success() throws Exception {
+
+        final User user = UserModelCreator.createUser(
+                "firstName",
+                "lastName",
+                "mail@mail.com",
+                "password".toCharArray(),
+                STUDENT,
+                true);
+
+        userRepository.save(user);
+
+
+        mvc.perform(
+                delete("/api/users/4")
+                .contentType(MediaType.APPLICATION_JSON)
+        )
+            .andExpect(status().isOk());
+    }
+
+    @Test
+    @WithMockUser(authorities = "ADMIN")
+    void deleteUser_Failure_NotFound() throws Exception {
+
+        mvc.perform(
+                delete("/api/users/512")
+                .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.code", equalTo(404)))
+                .andExpect(jsonPath("$.message", equalTo("User [id=512] not found")));
+    }
 }

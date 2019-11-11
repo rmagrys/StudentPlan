@@ -3,10 +3,10 @@ package com.student_plan;
 import com.student_plan.entity.Type;
 import com.student_plan.entity.User;
 
-public class UserModelCreator {
+class UserModelCreator {
 
-    public static User createUser(final String firstName, final String lastName, final String mail,
-                                  final char[] password, final Type type, final boolean enabled){
+    static User createUser(final String firstName, final String lastName, final String mail,
+                           final char[] password, final Type type, final boolean enabled){
 
         return User
                 .builder()

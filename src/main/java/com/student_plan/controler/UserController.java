@@ -57,7 +57,7 @@ public class UserController {
     public UserDto addNewUser(@RequestBody UserDto userDto){
 
         User user = UserDtoConverter.toEntity(userDto);
-        return UserDtoConverter.allToDto(userService.saveNewUser(user));
+        return UserDtoConverter.toDto(userService.saveNewUser(user));
 
     }
 
@@ -89,15 +89,4 @@ public class UserController {
         return UserDtoConverter.toDto(userService.updateUserPassword(oldPassword, newPassword, userId));
     }
 
-
-    @PatchMapping("/{userId}/ascribe")
-    public UserDto updateLecturesToStudent(
-            @PathVariable Long userId ){
-        User user = userService
-                .getUserById(userId)
-                .orElseThrow(() ->
-                        new NotFoundException("User [id=" + userId + "] not found"));
-
-        return UserDtoConverter.toDto(user);
-    }
 }

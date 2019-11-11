@@ -22,7 +22,7 @@ public class UserDto {
     private String mail;
     private Type type;
     private char[] password;
-    private boolean enabled ;
+    private boolean enabled = true;
     private List<StudentLectureDto> studentLecturesDto;
 
 }
