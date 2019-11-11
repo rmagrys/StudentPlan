@@ -2,21 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b40c2dd-779a-4ef8-bd62-c2ca972ef2aa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/UserDtoConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/UserDtoConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/Type.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/UserControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="15" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -101,7 +104,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in StudentPlan">
+  <component name="RunManager" selected="JUnit.UserServiceTest.getAllUsers_One_Element_Success">
     <configuration name="All in StudentPlan" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StudentPlan" />
       <option name="PACKAGE_NAME" value="" />
@@ -110,7 +113,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserControllerTest.getOneUser_ById_Anonymous_Role_Failure" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerTest.addNewUser_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StudentPlan" />
       <extension name="coverage">
         <pattern>
@@ -120,13 +123,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.student_plan" />
       <option name="MAIN_CLASS_NAME" value="com.student_plan.UserControllerTest" />
-      <option name="METHOD_NAME" value="getOneUser_ById_Anonymous_Role_Failure" />
+      <option name="METHOD_NAME" value="addNewUser_Success" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserControllerTest.getOneUser_ById_Failure" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerTest.getAllUsers_OneElement_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StudentPlan" />
       <extension name="coverage">
         <pattern>
@@ -136,7 +139,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.student_plan" />
       <option name="MAIN_CLASS_NAME" value="com.student_plan.UserControllerTest" />
-      <option name="METHOD_NAME" value="getOneUser_ById_Failure" />
+      <option name="METHOD_NAME" value="getAllUsers_OneElement_Success" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -158,7 +161,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserControllerTest.getOneUser_ById_Unauthorized_Role" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceTest.getAllUsers_One_Element_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StudentPlan" />
       <extension name="coverage">
         <pattern>
@@ -167,8 +170,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.student_plan" />
-      <option name="MAIN_CLASS_NAME" value="com.student_plan.UserControllerTest" />
-      <option name="METHOD_NAME" value="getOneUser_ById_Unauthorized_Role" />
+      <option name="MAIN_CLASS_NAME" value="com.student_plan.UserServiceTest" />
+      <option name="METHOD_NAME" value="getAllUsers_One_Element_Success" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -183,11 +186,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserServiceTest.getAllUsers_One_Element_Success" />
         <item itemvalue="JUnit.All in StudentPlan" />
-        <item itemvalue="JUnit.UserControllerTest.getOneUser_ById_Anonymous_Role_Failure" />
-        <item itemvalue="JUnit.UserControllerTest.getOneUser_ById_Unauthorized_Role" />
+        <item itemvalue="JUnit.UserControllerTest.addNewUser_Success" />
+        <item itemvalue="JUnit.UserControllerTest.getAllUsers_OneElement_Success" />
         <item itemvalue="JUnit.UserControllerTest.getOneUser_ById_Success" />
-        <item itemvalue="JUnit.UserControllerTest.getOneUser_ById_Failure" />
       </list>
     </recent_temporary>
   </component>
@@ -250,7 +253,15 @@
       <workItem from="1572539238044" duration="580000" />
       <workItem from="1572539842218" duration="7206000" />
       <workItem from="1572600494607" duration="1328000" />
-      <workItem from="1572692647571" duration="649000" />
+      <workItem from="1572692647571" duration="4964000" />
+      <workItem from="1572798396245" duration="31000" />
+      <workItem from="1572800879707" duration="88000" />
+      <workItem from="1572801027140" duration="3831000" />
+      <workItem from="1572884026180" duration="6444000" />
+      <workItem from="1572974753311" duration="6274000" />
+      <workItem from="1573072022087" duration="803000" />
+      <workItem from="1573072852206" duration="4193000" />
+      <workItem from="1573077715180" duration="2089000" />
     </task>
     <servers />
   </component>
@@ -278,6 +289,9 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/student_plan$All_in_StudentPlan.ic" NAME="All in StudentPlan Coverage Results" MODIFIED="1572086106331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/student_plan$com_student_plan_in_StudentPlan.ic" NAME="com.student_plan in StudentPlan Coverage Results" MODIFIED="1572086115107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.student_plan.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/student_plan$UserControllerTest_addNewUser_Success.ic" NAME="UserControllerTest.addNewUser_Success Coverage Results" MODIFIED="1573076965895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.student_plan.*</FILTER>
     </SUITE>
   </component>

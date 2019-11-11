@@ -44,7 +44,7 @@ public class User {
     private Type type;
 
     @Column
-    private boolean enabled = true;
+    private boolean enabled ;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<StudentLecture> studentLectures;

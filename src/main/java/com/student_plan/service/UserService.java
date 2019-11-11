@@ -4,10 +4,8 @@ package com.student_plan.service;
 import com.student_plan.entity.User;
 import com.student_plan.expections.BadRequestException;
 import com.student_plan.expections.NotFoundException;
-import com.student_plan.repository.LectureRepository;
 import com.student_plan.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Example;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -16,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.nio.CharBuffer;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -28,11 +27,8 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User getUserById(Long id){
-        return userRepository.findById(id)
-                .orElseThrow(() ->
-                    new NotFoundException("User [id=" + id + "] not found")
-                );
+    public Optional<User> getUserById(Long id){
+        return userRepository.findById(id);
     }
 
     public User saveNewUser(User user){

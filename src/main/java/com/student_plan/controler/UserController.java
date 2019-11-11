@@ -3,6 +3,7 @@ package com.student_plan.controler;
 import com.student_plan.dto.UserDto;
 import com.student_plan.dto.UserDtoConverter;
 import com.student_plan.entity.User;
+import com.student_plan.expections.NotFoundException;
 import com.student_plan.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -24,22 +25,29 @@ public class UserController {
         return userService
                 .getAllUsers()
                 .stream()
-                .map(UserDtoConverter::allToDto)
+                .map(UserDtoConverter::toDto)
                 .collect(Collectors.toList());
     }
 
     @GetMapping("/{userId}")
     @PreAuthorize("hasAnyAuthority('ADMINNNNNN', 'ADMIN')")
     public UserDto getOne(@PathVariable Long userId){
-        User user = userService.getUserById(userId);
+        User user = userService
+                .getUserById(userId)
+                .orElseThrow(() ->
+                        new NotFoundException("User [id=" + userId + "] not found"));
 
-        return UserDtoConverter.toDto(user);
+
+        return UserDtoConverter.allToDto(user);
     }
 
     @GetMapping("/{userId}/presences")
     @PreAuthorize("hasAuthority('ADMIN')")
     public UserDto getOneWithPresences(@PathVariable Long userId){
-        User user = userService.getUserById(userId);
+        User user = userService
+                .getUserById(userId)
+                .orElseThrow(() ->
+                        new NotFoundException("User [id=" + userId + "] not found"));
 
         return UserDtoConverter.allToDto(user);
     }
@@ -47,9 +55,9 @@ public class UserController {
     @PostMapping
     @PreAuthorize("hasAnyAuthority('ADMIN')")
     public UserDto addNewUser(@RequestBody UserDto userDto){
-        User user = UserDtoConverter.toEntity(userDto);
 
-        return UserDtoConverter.toDto(userService.saveNewUser(user));
+        User user = UserDtoConverter.toEntity(userDto);
+        return UserDtoConverter.allToDto(userService.saveNewUser(user));
 
     }
 
@@ -85,7 +93,10 @@ public class UserController {
     @PatchMapping("/{userId}/ascribe")
     public UserDto updateLecturesToStudent(
             @PathVariable Long userId ){
-        User user = userService.getUserById(userId);
+        User user = userService
+                .getUserById(userId)
+                .orElseThrow(() ->
+                        new NotFoundException("User [id=" + userId + "] not found"));
 
         return UserDtoConverter.toDto(user);
     }

@@ -33,8 +33,6 @@ class UserControllerTest extends AbstractTest {
     @MockBean
     UserService userService;
 
-    ObjectMapper mapper = new ObjectMapper();
-
     @Autowired
     private MockMvc mvc;
 
@@ -68,9 +66,10 @@ class UserControllerTest extends AbstractTest {
 
             userRepository.save(user);
 
+
             mvc.perform(
                         get("/api/users")
-                            .contentType(MediaType.APPLICATION_JSON)
+                            .contentType(MediaType.APPLICATION_STREAM_JSON)
                     )
                     .andExpect(status().isOk())
                     .andExpect(jsonPath("$", hasSize(1)))
@@ -131,10 +130,11 @@ class UserControllerTest extends AbstractTest {
                 STUDENT,
                 true);
 
-        userRepository.save(user);
+        /*userRepository.save(user);*/
 
         mvc.perform(
-                get("/api/users/2")
+               get("/api/users/1")
+                        .content(TestUtils.convertObjectsToJsonBytes(user))
                         .contentType(MediaType.APPLICATION_JSON)
         )
                 .andExpect(status().isOk())
@@ -142,7 +142,7 @@ class UserControllerTest extends AbstractTest {
                 .andExpect(jsonPath("$.lastName", equalTo("lastName")))
                 .andExpect(jsonPath("$.mail", equalTo("mail@mail.com")))
                 .andExpect(jsonPath("$.password", equalTo(null)))
-                .andExpect(jsonPath("$.type", equalTo("STUDENT")))
+                .andExpect(jsonPath("$.type", equalTo(STUDENT)))
                 .andExpect(jsonPath("$.enabled", equalTo(true)));
     }
 
@@ -150,33 +150,33 @@ class UserControllerTest extends AbstractTest {
     @Test
     @WithMockUser(authorities = "ADMIN")
     void addNewUser_Success() throws Exception {
-        final UserDto userDto = UserDto.builder()
-                .firstName("firstName")
-                .lastName("lastName")
-                .mail("mail@mail.com")
-                .password("password".toCharArray())
-                .type(STUDENT)
-                .enabled(true)
-                .build();
 
-        final User user = UserDtoConverter.toEntity(userDto);
+        final User user = UserModelCreator.createUser(
+                "firstName",
+                "lastName",
+                "mail@mail.com",
+                "password".toCharArray(),
+                STUDENT,
+                true);
 
 
-        when(userService.saveNewUser(any(User.class))).thenReturn(user);
 
         mvc.perform(
-                post("/api/users")
-                        .content(mapper.writeValueAsString(userDto))
-                    .contentType(MediaType.APPLICATION_JSON))
+               post("/api/users")
+                        .content(TestUtils.convertObjectsToJsonBytes(user))
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+
+
                         .andExpect(status().isOk())
                          .andExpect(jsonPath("$.firstName", equalTo("firstName")))
                          .andExpect(jsonPath("$.lastName", equalTo("lastName")))
-                         .andExpect(jsonPath("$.mail", equalTo("mail@mail.com")))
-                          .andExpect(jsonPath("$.password", equalTo(null)))
+                        .andExpect(jsonPath("$.mail", equalTo("mail@mail.com")))
+                        .andExpect(jsonPath("$.password", equalTo(null)))
                          .andExpect(jsonPath("$.type", equalTo("STUDENT")))
                          .andExpect(jsonPath("$.enabled", equalTo(true)));
 
-        )
 
-    }
+        }
+
 }

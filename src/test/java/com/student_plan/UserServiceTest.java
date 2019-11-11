@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 
+import java.nio.CharBuffer;
 import java.util.List;
 
 import static com.student_plan.entity.Type.STUDENT;
@@ -33,7 +34,7 @@ class UserServiceTest extends AbstractTest {
     }
 
     @Test
-    public void getAllUsers_One_Element_Success() {
+     void getAllUsers_One_Element_Success() {
         //given
         final User user = UserModelCreator.createUser(
                 "firstName",
@@ -80,4 +81,34 @@ class UserServiceTest extends AbstractTest {
             assertThat(singleUser, equalTo(not(empty())));
             assertThat(singleUser.);
         }*/
+
+       @Test
+        void saveNewUser_Success() {
+
+           //given
+           final User user = UserModelCreator.createUser(
+                   "firstName",
+                   "lastName",
+                   "mail@mail.com",
+                   "password".toCharArray(),
+                   STUDENT,
+                   true);
+
+           //when
+
+           userService.saveNewUser(user);
+           CharBuffer passwordBuffer = CharBuffer.wrap(user.getPassword());
+
+           //then
+
+           final List<User> singletonUser = userService.getAllUsers();
+
+           assertThat(singletonUser.get(0).getId(), equalTo(1L));
+           assertThat(singletonUser.get(0).getFirstName(), equalTo("firstName"));
+           assertThat(singletonUser.get(0).getLastName(), equalTo("lastName"));
+           assertThat(singletonUser.get(0).getMail(), equalTo("mail@mail.com"));
+           assertThat(singletonUser.get(0).getPassword(), equalTo(passwordBuffer.array()));
+           assertThat(singletonUser.get(0).getType(), equalTo(STUDENT));
+           assertThat(singletonUser.get(0).isEnabled(), equalTo(true));
+       }
 }
