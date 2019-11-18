@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -54,7 +55,7 @@ public class UserController {
 
     @PostMapping
     @PreAuthorize("hasAnyAuthority('ADMIN')")
-    public UserDto addNewUser(@RequestBody UserDto userDto){
+    public UserDto addNewUser(@RequestBody @Valid UserDto userDto){
 
         User user = UserDtoConverter.toEntity(userDto);
         return UserDtoConverter.toDto(userService.saveNewUser(user));

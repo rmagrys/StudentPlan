@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,7 +40,7 @@ public class LectureController {
     }
 
     @PostMapping
-    public LectureDto addNewLecture(@RequestBody LectureDto lectureDto){
+    public LectureDto addNewLecture(@RequestBody @Valid LectureDto lectureDto){
         Lecture lecture = LectureDtoConverter.toEntity(lectureDto);
 
         return LectureDtoConverter.toDto(lectureService.saveNewLecture(lecture));

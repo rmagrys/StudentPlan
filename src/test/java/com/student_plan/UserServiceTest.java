@@ -9,10 +9,12 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 
 import java.nio.CharBuffer;
 import java.util.List;
+import java.util.Optional;
 
 import static com.student_plan.entity.Type.STUDENT;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 @AutoConfigureMockMvc
 class UserServiceTest extends AbstractTest {
@@ -59,8 +61,8 @@ class UserServiceTest extends AbstractTest {
 
     }
 
-       /* @Test
-        public void deleteUser_Success(){
+        @Test
+        void deleteUser_Success(){
 
         //given
         final User user = UserModelCreator.createUser(
@@ -74,13 +76,12 @@ class UserServiceTest extends AbstractTest {
         userRepository.save(user);
 
         //when
-            final List<User> singleUser = userRepository.getByFirstName("firstName");
 
-            userRepository.delete(singleUser);
+            userService.deleteById(user.getId());
 
-            assertThat(singleUser, equalTo(not(empty())));
-            assertThat(singleUser.);
-        }*/
+            final Optional<User> singleUser = userRepository.findById(user.getId());
+            assertTrue(singleUser.isPresent());
+        }
 
        @Test
         void saveNewUser_Success() {
