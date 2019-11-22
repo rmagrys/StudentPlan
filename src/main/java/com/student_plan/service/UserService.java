@@ -90,17 +90,19 @@ public class UserService {
 
         final CharBuffer oldPassBuffer = CharBuffer.wrap(oldPassword);
         final CharBuffer newPasswordBuffer = CharBuffer.wrap(newPassword);
-        final char[] encodedOldPassword = passwordEncoder
-                        .encode(oldPassBuffer)
-                        .toCharArray();
 
-
-        if(Arrays.equals(encodedOldPassword, userForUpdatePassword.getPassword())){
+        if(passwordEncoder.matches(String.valueOf(oldPassword),String.valueOf(userForUpdatePassword.getPassword()))){
             userForUpdatePassword
                     .setPassword(passwordEncoder
                             .encode(newPasswordBuffer)
                             .toCharArray());
         } else {
+            final char[] pass = userForUpdatePassword.getPassword();
+
+            final char[] encodedOldPassword2 = passwordEncoder
+                    .encode(oldPassBuffer)
+                    .toCharArray();
+
             throw new BadRequestException("User old password is incorrect");
         }
     }
@@ -111,6 +113,7 @@ public class UserService {
 
         if(user instanceof UserDetails) {
             mail = ((UserDetails)user).getUsername();
+
         } else {
             mail = user.toString();
         }

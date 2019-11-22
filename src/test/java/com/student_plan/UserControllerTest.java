@@ -7,8 +7,12 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.http.MediaType;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.web.servlet.MockMvc;
+
+import java.nio.CharBuffer;
 
 import static com.student_plan.entity.Type.STUDENT;
 import static org.hamcrest.Matchers.equalTo;
@@ -21,7 +25,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class UserControllerTest extends AbstractTest {
 
     @Autowired
-    UserService userService;
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private MockMvc mvc;
@@ -232,14 +239,14 @@ class UserControllerTest extends AbstractTest {
 
 
     @Test
-    @WithMockUser(authorities = "ADMIN")
+    @WithMockUser(username = "mail@mail.com", authorities = "ADMIN")
     void updateUserPassword_Correct_Params_Success() throws Exception {
 
         final User user = UserModelCreator.createUser(
                 "firstName",
                 "lastName",
                 "mail@mail.com",
-                "password".toCharArray(),
+                passwordEncoder.encode(CharBuffer.wrap("password")).toCharArray(),
                 STUDENT,
                 true);
 
@@ -253,12 +260,41 @@ class UserControllerTest extends AbstractTest {
 
         )
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.firstName", equalTo("name")))
-                .andExpect(jsonPath("$.lastName", equalTo("surname")))
-                .andExpect(jsonPath("$.mail", equalTo("test@mail.com")))
+                .andExpect(jsonPath("$.firstName", equalTo("firstName")))
+                .andExpect(jsonPath("$.lastName", equalTo("lastName")))
+                .andExpect(jsonPath("$.mail", equalTo("mail@mail.com")))
                 .andExpect(jsonPath("$.password", equalTo(null)))
                 .andExpect(jsonPath("$.type", equalTo("STUDENT")))
                 .andExpect(jsonPath("$.enabled", equalTo(true)));
     }
 
+    @Test
+    @WithMockUser(username = "mail@mail.com", authorities = "ADMIN")
+    void updateUserPassword_Wrong_Password_Failure() throws Exception {
+
+        final User user = UserModelCreator.createUser(
+                "firstName",
+                "lastName",
+                "mail@mail.com",
+                passwordEncoder.encode(CharBuffer.wrap("password")).toCharArray(),
+                STUDENT,
+                true);
+
+        userRepository.save(user);
+
+        String queryParams = "?oldPassword=badPassword&newPassword=pass";
+
+        mvc.perform(
+                patch("/api/users/password/" + user.getId() + queryParams)
+                        .contentType(MediaType.APPLICATION_JSON)
+
+        )
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.code", equalTo(400)))
+                .andExpect(jsonPath("$.message", equalTo("User old password is incorrect")));
+    }
+
 }
+
+
+
