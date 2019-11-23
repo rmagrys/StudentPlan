@@ -7,6 +7,7 @@ import com.student_plan.expections.NotFoundException;
 import com.student_plan.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -75,6 +76,7 @@ public class UserController {
             @RequestParam(required = false) String firstName,
             @RequestParam(required = false) String lastName,
             @RequestParam(required = false) String mail){
+
 
         return UserDtoConverter.toDto(userService.updateUser(firstName, lastName, mail, userId));
     }

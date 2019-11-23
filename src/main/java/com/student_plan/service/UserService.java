@@ -88,7 +88,6 @@ public class UserService {
 
     private void changeUserPassword(char[] newPassword, char[] oldPassword, User userForUpdatePassword) {
 
-        final CharBuffer oldPassBuffer = CharBuffer.wrap(oldPassword);
         final CharBuffer newPasswordBuffer = CharBuffer.wrap(newPassword);
 
         if(passwordEncoder.matches(String.valueOf(oldPassword),String.valueOf(userForUpdatePassword.getPassword()))){
@@ -97,11 +96,6 @@ public class UserService {
                             .encode(newPasswordBuffer)
                             .toCharArray());
         } else {
-            final char[] pass = userForUpdatePassword.getPassword();
-
-            final char[] encodedOldPassword2 = passwordEncoder
-                    .encode(oldPassBuffer)
-                    .toCharArray();
 
             throw new BadRequestException("User old password is incorrect");
         }

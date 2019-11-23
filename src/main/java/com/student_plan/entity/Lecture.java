@@ -22,8 +22,12 @@ public class Lecture {
     private Long id;
 
     @Column
-    @Size(min=5 , max = 40, message = Lecture.MESSAGE)
+    @Size(min = 5 , max = 40, message = Lecture.MESSAGE)
     private String lectureName;
+
+    @Column
+    @Size(min = 5, max = 60, message = Lecture.MESSAGE)
+    private String lecturer;
 
 
 

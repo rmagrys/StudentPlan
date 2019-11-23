@@ -1,24 +1,24 @@
 package com.student_plan;
 
 import com.student_plan.entity.User;
+import com.student_plan.expections.BadRequestException;
 import com.student_plan.repository.UserRepository;
 import com.student_plan.service.UserService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.test.context.support.WithMockUser;
 
-import javax.swing.*;
-import java.beans.Encoder;
-import java.beans.ExceptionListener;
 import java.nio.CharBuffer;
 import java.util.List;
 import java.util.Optional;
 
 import static com.student_plan.entity.Type.STUDENT;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @AutoConfigureMockMvc
 class UserServiceTest extends AbstractTest {
@@ -182,5 +182,34 @@ class UserServiceTest extends AbstractTest {
         assertThat(singleUser.get().getType(), equalTo(STUDENT));
         assertThat(singleUser.get().isEnabled(), equalTo(true));
     }
+
+    @Test
+    @WithMockUser(username = "mail@mail.com")
+    void updateUserPassword_WrongPassword_ThrowsBadRequest() {
+
+        //given
+        final User user = UserModelCreator.createUser(
+                "firstName",
+                "lastName",
+                "mail@mail.com",
+                "password".toCharArray(),
+                STUDENT,
+                true);
+
+
+        //when
+        userService.saveNewUser(user);
+        final char[] pass = "pass".toCharArray();
+
+
+        //then
+
+        assertThrows(BadRequestException.class, () -> userService
+                .updateUserPassword("wrongPassword"
+                        .toCharArray() ,"pass"
+                        .toCharArray(),user.getId())
+        );
+    }
 }
+
 

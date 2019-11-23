@@ -9,7 +9,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.http.MediaType;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.test.context.support.WithMockUser;
-import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.nio.CharBuffer;
@@ -20,6 +19,7 @@ import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 
 @AutoConfigureMockMvc
 class UserControllerTest extends AbstractTest {
@@ -294,7 +294,54 @@ class UserControllerTest extends AbstractTest {
                 .andExpect(jsonPath("$.message", equalTo("User old password is incorrect")));
     }
 
-}
+    @Test
+    @WithMockUser(authorities = "ADMIN")
+    void updateUser_Wrong_firstNameSize_Failure() throws Exception {
+
+        final User user = UserModelCreator.createUser(
+                "firstName",
+                "lastName",
+                "mail@mail.com",
+                "password".toCharArray(),
+                STUDENT,
+                true);
+
+        final String tooShortName = "n";
+        final String queryParams = "?firstName=" + tooShortName + "&lastName=surname&mail=test@mail.com";
+
+        userRepository.save(user);
+
+
+        mvc.perform(
+                patch("/api/users/" + user.getId() + queryParams)
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andExpect(status().isBadRequest());
+
+        }
+
+    @Test
+    @WithMockUser(authorities = "ADMIN")
+    void addNewUser_Wrong_firstNameSize_Failure() throws Exception {
+
+        final User user = UserModelCreator.createUser(
+                "N",
+                "lastName",
+                "mail@mail.com",
+                "password".toCharArray(),
+                STUDENT,
+                true);
+
+
+        mvc.perform(
+                post("/api/users")
+                        .content(TestUtils.convertObjectsToJsonBytes(user))
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andExpect(status().isBadRequest());
+
+    }
+    }
 
 
 
