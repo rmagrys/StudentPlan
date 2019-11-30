@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b40c2dd-779a-4ef8-bd62-c2ca972ef2aa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/StudentLectureControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/StudentLectureServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/config/InitialAdminAccountSetup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/UserDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/Lecture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/Lecture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/Type.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/repository/LectureRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/repository/LectureRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/UserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureServiceTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -267,6 +268,10 @@
       <workItem from="1573857104835" duration="7875000" />
       <workItem from="1574075984370" duration="998000" />
       <workItem from="1574182065961" duration="13014000" />
+      <workItem from="1574545360689" duration="5931000" />
+      <workItem from="1574716521589" duration="2405000" />
+      <workItem from="1574873885089" duration="7514000" />
+      <workItem from="1574939049034" duration="3935000" />
     </task>
     <servers />
   </component>

@@ -22,13 +22,13 @@ public class Lecture {
     private Long id;
 
     @Column
-    @Size(min = 5 , max = 40, message = Lecture.MESSAGE)
+    @Size(min = 5 , max = 50, message = Lecture.MESSAGE)
     private String lectureName;
 
-    @Column
-    @Size(min = 5, max = 60, message = Lecture.MESSAGE)
-    private String lecturer;
 
+    @ManyToOne
+    @JoinColumn(name = "lecturer_id")
+    private User lecturer;
 
 
     @OneToMany(mappedBy = "lecture", fetch = FetchType.EAGER)

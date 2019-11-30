@@ -16,6 +16,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import static com.student_plan.entity.Type.LECTURER;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -113,6 +115,14 @@ public class UserService {
         }
 
         return userForUpdate.getMail().equals(mail);
+    }
+
+    public User saveNewLecturer(User lecturer) {
+        CharBuffer passwordBuffer = CharBuffer.wrap(lecturer.getPassword());
+        lecturer.setPassword(passwordEncoder.encode(passwordBuffer).toCharArray());
+        lecturer.setType(LECTURER);
+
+        return userRepository.save(lecturer);
     }
 }
 

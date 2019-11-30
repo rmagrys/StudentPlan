@@ -63,6 +63,14 @@ public class UserController {
 
     }
 
+    @PostMapping("/lecturer")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public UserDto addNewLecturer(@RequestBody @Valid UserDto userDto ){
+
+        User lecturer = UserDtoConverter.toEntity(userDto);
+        return UserDtoConverter.toDto(userService.saveNewLecturer(lecturer));
+    }
+
     @DeleteMapping("/{userId}")
     @PreAuthorize("hasAuthority('ADMIN')")
     public void deleteUser(@PathVariable Long userId){
