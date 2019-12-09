@@ -1,8 +1,9 @@
 package com.student_plan;
 
+import com.student_plan.dto.UserParamsDto;
+import com.student_plan.dto.UserPasswordDto;
 import com.student_plan.entity.User;
 import com.student_plan.repository.UserRepository;
-import com.student_plan.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -26,9 +27,6 @@ class UserControllerTest extends AbstractTest {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
-
-    @Autowired
-    private UserService userService;
 
     @Autowired
     private MockMvc mvc;
@@ -95,7 +93,7 @@ class UserControllerTest extends AbstractTest {
 
     @Test
     @WithMockUser(authorities = "USER")
-    void getOneUser_ById_Unauthorized_Role_Failure() throws Exception {
+    void getOneUserById_UnauthorizedRole_Failure() throws Exception {
 
         mvc.perform(
                 get("/api/users/11111")
@@ -105,7 +103,7 @@ class UserControllerTest extends AbstractTest {
     }
 
     @Test
-    void getOneUser_ById_Anonymous_Role_Failure() throws Exception {
+    void getOneUserById_AnonymousRole_Failure() throws Exception {
 
         mvc.perform(
                 get("/api/users/1")
@@ -116,7 +114,7 @@ class UserControllerTest extends AbstractTest {
 
     @Test
     @WithMockUser(authorities = "ADMIN")
-    void getOneUser_ById_Success() throws Exception {
+    void getOneUserById_Success() throws Exception {
 
         final User user = UserModelCreator.createUser(
                 "firstName",
@@ -154,7 +152,6 @@ class UserControllerTest extends AbstractTest {
                 "password".toCharArray(),
                 STUDENT,
                 true);
-
 
         mvc.perform(
                 post("/api/users")
@@ -208,7 +205,7 @@ class UserControllerTest extends AbstractTest {
 
     @Test
     @WithMockUser(authorities = "ADMIN")
-    void updateUser_Correct_Params_Success() throws Exception {
+    void updateUser_CorrectParams_Success() throws Exception {
 
         final User user = UserModelCreator.createUser(
                 "firstName",
@@ -218,14 +215,17 @@ class UserControllerTest extends AbstractTest {
                 STUDENT,
                 true);
 
-        final String queryParams = "?firstName=name&lastName=surname&mail=test@mail.com";
-
         userRepository.save(user);
 
+        final UserParamsDto userParamsDto = UserModelCreator.createUserParamsDto(
+                "name",
+                "surname",
+                "test@mail.com");
 
         mvc.perform(
-                patch("/api/users/" + user.getId() + queryParams)
-                    .contentType(MediaType.APPLICATION_JSON)
+                patch("/api/users/" + user.getId())
+                        .content(TestUtils.convertObjectsToJsonBytes(userParamsDto))
+                        .contentType(MediaType.APPLICATION_JSON)
 
         )
                 .andExpect(status().isOk())
@@ -240,7 +240,7 @@ class UserControllerTest extends AbstractTest {
 
     @Test
     @WithMockUser(username = "mail@mail.com", authorities = "ADMIN")
-    void updateUserPassword_Correct_Params_Success() throws Exception {
+    void updateUserPassword_CorrectParams_Success() throws Exception {
 
         final User user = UserModelCreator.createUser(
                 "firstName",
@@ -252,10 +252,14 @@ class UserControllerTest extends AbstractTest {
 
         userRepository.save(user);
 
-        String queryParams = "?oldPassword=password&newPassword=pass";
+        final UserPasswordDto userPasswordDto = UserModelCreator.createUserPasswordDto(
+                "password".toCharArray(),
+                "newPassword".toCharArray()
+        );
 
         mvc.perform(
-                patch("/api/users/password/" + user.getId() + queryParams)
+                patch("/api/users/password/" + user.getId())
+                        .content(TestUtils.convertObjectsToJsonBytes(userPasswordDto))
                         .contentType(MediaType.APPLICATION_JSON)
 
         )
@@ -270,7 +274,7 @@ class UserControllerTest extends AbstractTest {
 
     @Test
     @WithMockUser(username = "mail@mail.com", authorities = "ADMIN")
-    void updateUserPassword_Wrong_Password_Failure() throws Exception {
+    void updateUserPassword_WrongPassword_Failure() throws Exception {
 
         final User user = UserModelCreator.createUser(
                 "firstName",
@@ -282,10 +286,14 @@ class UserControllerTest extends AbstractTest {
 
         userRepository.save(user);
 
-        String queryParams = "?oldPassword=badPassword&newPassword=pass";
+        final UserPasswordDto userPasswordDto = UserModelCreator.createUserPasswordDto(
+                "wrongPassword".toCharArray(),
+                "newPassword".toCharArray()
+        );
 
         mvc.perform(
-                patch("/api/users/password/" + user.getId() + queryParams)
+                patch("/api/users/password/" + user.getId())
+                        .content(TestUtils.convertObjectsToJsonBytes(userPasswordDto))
                         .contentType(MediaType.APPLICATION_JSON)
 
         )
@@ -296,24 +304,19 @@ class UserControllerTest extends AbstractTest {
 
     @Test
     @WithMockUser(authorities = "ADMIN")
-    void updateUser_Wrong_firstNameSize_Failure() throws Exception {
+    void updateUser_WrongLastNameSize_Failure() throws Exception {
 
         final User user = UserModelCreator.createUser(
                 "firstName",
-                "lastName",
+                "N",
                 "mail@mail.com",
                 "password".toCharArray(),
                 STUDENT,
                 true);
 
-        final String tooShortName = "n";
-        final String queryParams = "?firstName=" + tooShortName + "&lastName=surname&mail=test@mail.com";
-
-        userRepository.save(user);
-
-
         mvc.perform(
-                patch("/api/users/" + user.getId() + queryParams)
+                patch("/api/users/" + user.getId())
+                        .content(TestUtils.convertObjectsToJsonBytes(user))
                         .contentType(MediaType.APPLICATION_JSON)
         )
                 .andExpect(status().isBadRequest());
@@ -322,7 +325,7 @@ class UserControllerTest extends AbstractTest {
 
     @Test
     @WithMockUser(authorities = "ADMIN")
-    void addNewUser_Wrong_firstNameSize_Failure() throws Exception {
+    void addNewUser_WrongFirstNameSize_Failure() throws Exception {
 
         final User user = UserModelCreator.createUser(
                 "N",
@@ -341,7 +344,100 @@ class UserControllerTest extends AbstractTest {
                 .andExpect(status().isBadRequest());
 
     }
+
+    @Test
+    @WithMockUser(authorities = "ADMIN")
+    void addNewUser_WrongMailNameSize_Failure() throws Exception {
+
+        final User user = UserModelCreator.createUser(
+                "firstName",
+                "lastName",
+                "a@n",
+                "password".toCharArray(),
+                STUDENT,
+                true);
+
+        mvc.perform(
+                post("/api/users")
+                        .content(TestUtils.convertObjectsToJsonBytes(user))
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andExpect(status().isBadRequest());
+
     }
+    @Test
+    @WithMockUser(authorities = "ADMIN")
+    void addNewUser_WrongMailFormat_Failure() throws Exception {
+
+        final User user = UserModelCreator.createUser(
+                "firstName",
+                "lastName",
+                "emailWithWrongFormat",
+                "password".toCharArray(),
+                STUDENT,
+                true);
+
+        mvc.perform(
+                post("/api/users")
+                        .content(TestUtils.convertObjectsToJsonBytes(user))
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andExpect(status().isBadRequest());
+
+    }
+
+    @Test
+    @WithMockUser(authorities = "ADMIN")
+    void updateUserPassword_WrongPasswordNameSize_Failure() throws Exception {
+
+        final User user = UserModelCreator.createUser(
+                "firstName",
+                "lastName",
+                "mail@mail.com",
+                passwordEncoder.encode(CharBuffer.wrap("password")).toCharArray(),
+                STUDENT,
+                true);
+
+        userRepository.save(user);
+
+        final UserPasswordDto userPasswordDto= UserModelCreator.createUserPasswordDto(
+                "N".toCharArray(),
+                "lastName".toCharArray()
+                );
+
+
+        mvc.perform(
+                patch("/api/users/password/" + user.getId())
+                        .content(TestUtils.convertObjectsToJsonBytes(userPasswordDto))
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    @WithMockUser(authorities = "ADMIN")
+    void addNewUser_NotUniqueMail_ThrowsNotUniqueException() throws Exception {
+
+        final User user = UserModelCreator.createUser(
+                "firstName",
+                "lastName",
+                "mail@mail.pl",
+                passwordEncoder.encode(CharBuffer.wrap("password")).toCharArray(),
+                STUDENT,
+                true);
+
+        userRepository.save(user);
+
+        mvc.perform(
+                post("/api/users")
+                        .content(TestUtils.convertObjectsToJsonBytes(user))
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andExpect(status().isConflict())
+                .andExpect(jsonPath("$.code",equalTo(409)))
+                .andExpect(jsonPath("$.message",equalTo("Email already exist")));
+    }
+}
 
 
 

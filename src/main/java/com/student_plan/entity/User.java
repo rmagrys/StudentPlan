@@ -31,7 +31,6 @@ public class User {
     @Size(min = 3, max = 60, message = message)
     private String lastName;
 
-    @UniqueElements
     @Column
     @Size(min = 5, max = 50, message = message)
     @Email

@@ -2,12 +2,12 @@ package com.student_plan.controler;
 
 import com.student_plan.dto.UserDto;
 import com.student_plan.dto.UserDtoConverter;
+import com.student_plan.dto.UserPasswordDto;
 import com.student_plan.entity.User;
 import com.student_plan.expections.NotFoundException;
 import com.student_plan.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -81,23 +81,32 @@ public class UserController {
     @PreAuthorize("hasAuthority('ADMIN')")
     public UserDto updateUser(
             @PathVariable Long userId,
-            @RequestParam(required = false) String firstName,
-            @RequestParam(required = false) String lastName,
-            @RequestParam(required = false) String mail){
+            @Valid @RequestBody UserDto userDto){
 
-
-        return UserDtoConverter.toDto(userService.updateUser(firstName, lastName, mail, userId));
+        return UserDtoConverter.toDto(
+                userService
+                        .updateUser(
+                            userDto.getFirstName(),
+                            userDto.getLastName(),
+                            userDto.getMail(),
+                            userId)
+                        );
     }
 
     @PatchMapping("/password/{userId}")
     @PreAuthorize("hasAnyAuthority('STUDENT','ADMIN')")
     public UserDto updateUserPassword(
             @PathVariable Long userId,
-            @RequestParam char[] oldPassword,
-            @RequestParam char[] newPassword){
+            @RequestBody UserPasswordDto userPasswordDto){
 
 
-        return UserDtoConverter.toDto(userService.updateUserPassword(oldPassword, newPassword, userId));
+        return UserDtoConverter.toDto(
+                userService
+                        .updateUserPassword(
+                                userPasswordDto.getOldPassword(),
+                                userPasswordDto.getNewPassword(),
+                                userId)
+                        );
     }
 
 }

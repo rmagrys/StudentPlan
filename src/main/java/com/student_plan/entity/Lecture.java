@@ -4,9 +4,11 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -25,6 +27,9 @@ public class Lecture {
     @Size(min = 5 , max = 50, message = Lecture.MESSAGE)
     private String lectureName;
 
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @Column
+    private Date date;
 
     @ManyToOne
     @JoinColumn(name = "lecturer_id")

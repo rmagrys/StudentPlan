@@ -1,3 +1,4 @@
+/*
 package com.student_plan.config;
 
 import com.student_plan.entity.Type;
@@ -14,10 +15,15 @@ import java.nio.CharBuffer;
 
 
 @Component
-@Builder
-@RequiredArgsConstructor
 public class InitialAdminAccountSetup {
 
+        InitialAdminAccountSetup(PasswordEncoder passwordEncoder){
+            this.passwordEncoder = passwordEncoder;
+        }
+
+        InitialAdminAccountSetup(UserRepository userRepository){
+            this.userRepository = userRepository;
+        }
         private PasswordEncoder passwordEncoder;
         private UserRepository userRepository;
 
@@ -27,9 +33,9 @@ public class InitialAdminAccountSetup {
             if(userRepository.findById(1L).orElse(null) == null) {
                 User admin = User.builder().firstName("admin")
                         .lastName("admin")
-                        .mail("admin@gmial.com")
+                        .mail("admin@gmail.com")
                         .type(Type.ADMIN)
-                        .password(passwordEncoder.encode(CharBuffer.wrap("pass")).toCharArray())
+                        .password(passwordEncoder.encode(CharBuffer.wrap("password")).toCharArray())
                         .build();
 
                 userRepository.save(admin);
@@ -37,3 +43,4 @@ public class InitialAdminAccountSetup {
         }
 
 }
+*/
