@@ -16,6 +16,5 @@ public interface LectureRepository extends JpaRepository<Lecture, Long> {
             "WHERE lecture.lectureName = :lectureName")
     List<Lecture> findAllByLectureName(String lectureName);
 
-    Long countBymail(String mail);
 
 }

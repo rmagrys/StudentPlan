@@ -4,6 +4,7 @@ package com.student_plan.service;
 import com.student_plan.entity.User;
 import com.student_plan.expections.BadRequestException;
 import com.student_plan.expections.NotFoundException;
+import com.student_plan.expections.NotUniqueException;
 import com.student_plan.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -11,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.validation.Valid;
 import java.nio.CharBuffer;
 import java.util.Arrays;
 import java.util.List;
@@ -33,11 +35,23 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public User saveNewUser(User user){
+    public User saveNewUser(@Valid User user) throws NotUniqueException {
+        if(isEmailUnique(user.getMail())){
+                setUserPassword(user);
+
+                return userRepository.save(user);
+        } else {
+                throw new NotUniqueException("Email already exist");
+        }
+    }
+
+    private void setUserPassword(User user) {
         CharBuffer passwordBuffer = CharBuffer.wrap(user.getPassword());
         user.setPassword(passwordEncoder.encode(passwordBuffer).toCharArray());
+    }
 
-        return userRepository.save(user);
+    private boolean isEmailUnique(String mail) {
+        return userRepository.countByMail(mail) == 0;
     }
 
     public void deleteById(Long id){

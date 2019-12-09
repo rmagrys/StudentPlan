@@ -3,6 +3,7 @@ package com.student_plan.expections.handlers;
 import com.student_plan.expections.BadRequestException;
 import com.student_plan.expections.NotFoundException;
 
+import com.student_plan.expections.NotUniqueException;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.http.HttpStatus;
@@ -28,5 +29,13 @@ public class GlobalExceptionHandler {
         log.info("BAD_REQUEST | " + badRequestException.getMessage());
         return new ErrorResponse(400, badRequestException.getMessage());
     }
+
+    @ExceptionHandler(NotUniqueException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public ErrorResponse notUniqueHandler(NotUniqueException notUniqueException){
+        log.info("NOT_UNIQUE | " + notUniqueException.getMessage());
+        return new ErrorResponse(409, notUniqueException.getMessage());
+    }
+
 }
 

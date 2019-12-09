@@ -14,4 +14,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     User getByFirstName(String firstName);
 
+    Long countByMail(String mail);
+
 }
