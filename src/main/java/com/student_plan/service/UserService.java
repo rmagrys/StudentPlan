@@ -44,7 +44,7 @@ public class UserService {
         }
     }
 
-    private void setUserPassword(User user) {
+    private void setUserPassword(@Valid User user) {
         CharBuffer passwordBuffer = CharBuffer.wrap(user.getPassword());
         user.setPassword(passwordEncoder.encode(passwordBuffer).toCharArray());
     }
@@ -64,18 +64,21 @@ public class UserService {
     }
 
     public User updateUser(String firstName, String lastName, String mail, Long id){
-        User userForUpdate = userRepository
-                .findById(id)
-                .orElseThrow(() ->
-                    new NotFoundException("User [id=" + id + "] not found")
-                );
+       if(!isEmailUnique(mail)) {
+           throw new NotUniqueException("Email already exist");
+       } else {
+           User userForUpdate = userRepository
+                   .findById(id)
+                   .orElseThrow(() ->
+                           new NotFoundException("User [id=" + id + "] not found")
+                   );
+           updateUserValues(firstName, lastName, mail, userForUpdate);
 
-        updateUserValues(firstName, lastName, mail, userForUpdate);
-
-        return userRepository.save(userForUpdate);
+           return userRepository.save(userForUpdate);
+       }
     }
 
-    private void updateUserValues(String firstName, String lastName, String mail, User user) {
+    private void updateUserValues(String firstName, String lastName, String mail, @Valid User user) {
 
         if(firstName != null)
             user.setFirstName(firstName);
@@ -130,7 +133,7 @@ public class UserService {
         return userForUpdate.getMail().equals(mail);
     }
 
-    public User saveNewLecturer(User lecturer) {
+    public User saveNewLecturer(@Valid User lecturer) {
         CharBuffer passwordBuffer = CharBuffer.wrap(lecturer.getPassword());
         lecturer.setPassword(passwordEncoder.encode(passwordBuffer).toCharArray());
         lecturer.setType(LECTURER);

@@ -1,6 +1,7 @@
 package com.student_plan.expections.handlers;
 
 import com.student_plan.expections.BadRequestException;
+import com.student_plan.expections.NotDeletedException;
 import com.student_plan.expections.NotFoundException;
 
 import com.student_plan.expections.NotUniqueException;
@@ -35,6 +36,13 @@ public class GlobalExceptionHandler {
     public ErrorResponse notUniqueHandler(NotUniqueException notUniqueException){
         log.info("NOT_UNIQUE | " + notUniqueException.getMessage());
         return new ErrorResponse(409, notUniqueException.getMessage());
+    }
+
+    @ExceptionHandler(NotDeletedException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public ErrorResponse notDeletedHandler(NotDeletedException notDeletedException){
+        log.info("NOT_DELETED | " + notDeletedException.getMessage());
+        return new ErrorResponse(409,notDeletedException.getMessage());
     }
 
 }

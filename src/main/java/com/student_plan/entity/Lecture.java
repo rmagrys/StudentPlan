@@ -2,15 +2,18 @@ package com.student_plan.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
+@Builder
 @Entity
 @Data
 @AllArgsConstructor
@@ -27,12 +30,10 @@ public class Lecture {
     @Size(min = 5 , max = 50, message = Lecture.MESSAGE)
     private String lectureName;
 
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
     @Column
-    private Date date;
+    private LocalDate date;
 
-    @ManyToOne
-    @JoinColumn(name = "lecturer_id")
+    @ManyToOne(targetEntity = User.class)
     private User lecturer;
 
 

@@ -1,11 +1,9 @@
-/*
 package com.student_plan.config;
 
 import com.student_plan.entity.Type;
 import com.student_plan.entity.User;
 import com.student_plan.repository.UserRepository;
-import lombok.Builder;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,13 +15,12 @@ import java.nio.CharBuffer;
 @Component
 public class InitialAdminAccountSetup {
 
-        InitialAdminAccountSetup(PasswordEncoder passwordEncoder){
+        @Autowired
+        InitialAdminAccountSetup(PasswordEncoder passwordEncoder, UserRepository userRepository){
             this.passwordEncoder = passwordEncoder;
-        }
-
-        InitialAdminAccountSetup(UserRepository userRepository){
             this.userRepository = userRepository;
         }
+
         private PasswordEncoder passwordEncoder;
         private UserRepository userRepository;
 
@@ -43,4 +40,3 @@ public class InitialAdminAccountSetup {
         }
 
 }
-*/

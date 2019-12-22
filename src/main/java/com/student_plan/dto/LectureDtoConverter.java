@@ -3,6 +3,7 @@ package com.student_plan.dto;
 import com.student_plan.entity.Lecture;
 import com.student_plan.entity.StudentLecture;
 
+import java.time.LocalDate;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -14,6 +15,7 @@ public class LectureDtoConverter {
 
         lectureDto.setId(lecture.getId());
         lectureDto.setLectureName(lecture.getLectureName());
+        lectureDto.setDate(lecture.getDate());
 
         return lectureDto;
     }
@@ -24,6 +26,18 @@ public class LectureDtoConverter {
 
         lecture.setId(lectureDto.getId());
         lecture.setLectureName(lectureDto.getLectureName());
+        lecture.setDate(lectureDto.getDate());
+
+        return lecture;
+    }
+
+    public static Lecture toEntityWithParams(LectureParamsDto lectureParamsDto, LocalDate date){
+
+        Lecture lecture = new Lecture();
+
+        lecture.setId(lectureParamsDto.getId());
+        lecture.setLectureName(lectureParamsDto.getLectureName());
+        lecture.setDate(date);
 
         return lecture;
     }

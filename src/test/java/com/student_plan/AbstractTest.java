@@ -1,7 +1,10 @@
 package com.student_plan;
 
+import com.student_plan.repository.LectureRepository;
+import com.student_plan.repository.StudentLectureRepository;
 import com.student_plan.repository.UserRepository;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -11,12 +14,29 @@ public class AbstractTest {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private LectureRepository lectureRepository;
+
+    @Autowired
+    private StudentLectureRepository studentLectureRepository;
+
     @AfterEach
     public void afterEachTest(){
-        cleanDatabase();
+
+        cleanStudentLectureDatabase();
+        cleanLectureDatabase();
+        cleanUserDatabase();
     }
 
-    private void cleanDatabase() {
-        userRepository.deleteAll();
+    private void cleanLectureDatabase() {
+        lectureRepository.deleteAll();
+    }
+
+    private void cleanStudentLectureDatabase() {
+        studentLectureRepository.deleteAll();
+    }
+
+    private void cleanUserDatabase() {
+       userRepository.deleteAll();
     }
 }

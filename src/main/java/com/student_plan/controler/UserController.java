@@ -2,6 +2,7 @@ package com.student_plan.controler;
 
 import com.student_plan.dto.UserDto;
 import com.student_plan.dto.UserDtoConverter;
+import com.student_plan.dto.UserParamsDto;
 import com.student_plan.dto.UserPasswordDto;
 import com.student_plan.entity.User;
 import com.student_plan.expections.NotFoundException;
@@ -30,6 +31,7 @@ public class UserController {
                 .map(UserDtoConverter::toDto)
                 .collect(Collectors.toList());
     }
+
 
     @GetMapping("/{userId}")
     @PreAuthorize("hasAnyAuthority('ADMINNNNNN', 'ADMIN')")
@@ -81,14 +83,14 @@ public class UserController {
     @PreAuthorize("hasAuthority('ADMIN')")
     public UserDto updateUser(
             @PathVariable Long userId,
-            @Valid @RequestBody UserDto userDto){
+            @Valid @RequestBody UserParamsDto userParamsDto){
 
         return UserDtoConverter.toDto(
                 userService
                         .updateUser(
-                            userDto.getFirstName(),
-                            userDto.getLastName(),
-                            userDto.getMail(),
+                            userParamsDto.getFirstName(),
+                            userParamsDto.getLastName(),
+                            userParamsDto.getMail(),
                             userId)
                         );
     }

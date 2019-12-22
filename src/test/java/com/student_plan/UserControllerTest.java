@@ -2,7 +2,11 @@ package com.student_plan;
 
 import com.student_plan.dto.UserParamsDto;
 import com.student_plan.dto.UserPasswordDto;
+import com.student_plan.entity.Lecture;
+import com.student_plan.entity.StudentLecture;
 import com.student_plan.entity.User;
+import com.student_plan.repository.LectureRepository;
+import com.student_plan.repository.StudentLectureRepository;
 import com.student_plan.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +17,7 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.nio.CharBuffer;
+import java.time.LocalDate;
 
 import static com.student_plan.entity.Type.STUDENT;
 import static org.hamcrest.Matchers.equalTo;
@@ -33,6 +38,12 @@ class UserControllerTest extends AbstractTest {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private StudentLectureRepository studentLectureRepository;
+
+    @Autowired
+    private LectureRepository lectureRepository;
 
     @Test
     @WithMockUser(authorities = "ADMIN")
@@ -128,7 +139,6 @@ class UserControllerTest extends AbstractTest {
 
         mvc.perform(
                 get("/api/users/" + user.getId())
-                        .content(TestUtils.convertObjectsToJsonBytes(user))
                         .contentType(MediaType.APPLICATION_JSON)
         )
                 .andExpect(status().isOk())
@@ -416,7 +426,7 @@ class UserControllerTest extends AbstractTest {
 
     @Test
     @WithMockUser(authorities = "ADMIN")
-    void addNewUser_NotUniqueMail_ThrowsNotUniqueException() throws Exception {
+    void addNewUser_NotUniqueMail_ThrowsNotUnique() throws Exception {
 
         final User user = UserModelCreator.createUser(
                 "firstName",
@@ -436,6 +446,108 @@ class UserControllerTest extends AbstractTest {
                 .andExpect(status().isConflict())
                 .andExpect(jsonPath("$.code",equalTo(409)))
                 .andExpect(jsonPath("$.message",equalTo("Email already exist")));
+    }
+
+    @Test
+    @WithMockUser(authorities = "ADMIN")
+    void updateUser_NotUniqueParams_ThrowsNotUnique() throws Exception {
+
+        final User user = UserModelCreator.createUser(
+                "firstName",
+                "lastName",
+                "mail@mail.com",
+                "password".toCharArray(),
+                STUDENT,
+                true);
+
+        userRepository.save(user);
+
+        final UserParamsDto userParamsDto = UserModelCreator.createUserParamsDto(
+                "name",
+                "surname",
+                "mail@mail.com");
+
+        mvc.perform(
+                patch("/api/users/" + user.getId())
+                        .content(TestUtils.convertObjectsToJsonBytes(userParamsDto))
+                        .contentType(MediaType.APPLICATION_JSON)
+
+        )
+                .andExpect(status().isConflict())
+                .andExpect(jsonPath("$.code", equalTo(409)))
+                .andExpect(jsonPath("$.message", equalTo("Email already exist")));
+
+    }
+
+    @Test
+    @WithMockUser(authorities = "ADMIN")
+    void addNewLecturer_Success() throws Exception {
+
+        final User user = UserModelCreator.createUser(
+                "firstName",
+                "lastName",
+                "mail@mail.com",
+                "password".toCharArray(),
+                STUDENT,
+                true);
+
+        mvc.perform(
+                post("/api/users/lecturer")
+                        .content(TestUtils.convertObjectsToJsonBytes(user))
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.firstName", equalTo("firstName")))
+                .andExpect(jsonPath("$.lastName", equalTo("lastName")))
+                .andExpect(jsonPath("$.mail", equalTo("mail@mail.com")))
+                .andExpect(jsonPath("$.password", equalTo(null)))
+                .andExpect(jsonPath("$.type", equalTo("LECTURER")))
+                .andExpect(jsonPath("$.enabled", equalTo(true)));
+
+    }
+
+    @Test
+    @WithMockUser(authorities = "ADMIN")
+    void getOneUserWithPresences_Success() throws Exception {
+
+        final User user = UserModelCreator.createUser(
+                "firstName",
+                "lastName",
+                "mail@mail.com",
+                "password".toCharArray(),
+                STUDENT,
+                true);
+
+        userRepository.save(user);
+
+        final Lecture lecture = LectureModelCreator.createLecture(
+                "lectureName",
+                LocalDate.parse("2011-12-27"));
+
+        lectureRepository.save(lecture);
+
+        final StudentLecture studentLecture = StudentLectureModelCreator.createStudentLecture(
+                lecture,
+                user,
+                true);
+
+        studentLectureRepository.saveAndFlush(studentLecture);
+
+        mvc.perform(
+                get("/api/users/" + user.getId() + "/presences")
+                        .content(TestUtils.convertObjectsToJsonBytes(user))
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.firstName", equalTo("firstName")))
+                .andExpect(jsonPath("$.lastName", equalTo("lastName")))
+                .andExpect(jsonPath("$.mail", equalTo("mail@mail.com")))
+                .andExpect(jsonPath("$.password", equalTo(null)))
+                .andExpect(jsonPath("$.type", equalTo("STUDENT")))
+                .andExpect(jsonPath("$.enabled", equalTo(true)))
+                .andExpect(jsonPath("$.studentLecturesDto[0].lectureId", equalTo(lecture.getId().intValue())))
+                .andExpect(jsonPath("$.studentLecturesDto[0].userId", equalTo(user.getId().intValue())))
+                .andExpect(jsonPath("$.studentLecturesDto[0].presence", equalTo(true)));
     }
 }
 

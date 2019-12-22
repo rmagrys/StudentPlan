@@ -2,18 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b40c2dd-779a-4ef8-bd62-c2ca972ef2aa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/UserParamsDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/LectureParamsDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/expections/NotDeletedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureModelCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/StudentLectureModelCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudentPlan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/StudentPlan.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/config/InitialAdminAccountSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/config/InitialAdminAccountSetup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/LectureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/LectureController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/LectureDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/LectureDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/LectureDtoConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/LectureDtoConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/Lecture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/Lecture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/StudentLecture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/StudentLecture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/expections/handlers/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/expections/handlers/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/service/LectureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/service/LectureService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/AbstractTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/AbstractTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/UserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/UserModelCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/UserModelCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/META-INF/StudentPlan.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/META-INF/StudentPlan.kotlin_module" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,6 +74,11 @@
   </component>
   <component name="ProjectId" id="1OYPB1SnkPmBJoVAK76KdX5NgKq" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RequestMappingsPanelOrder0" value="0" />
@@ -93,28 +111,8 @@
       <recent name="com.student_plan.entity" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="JUnit.UserControllerTest.addNewUser_NotUniqueMail_ThrowsNotUniqueException">
-    <configuration name="All in StudentPlan" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StudentPlan" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserControllerTest.addNewUser_NotUniqueMail_ThrowsNotUniqueException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.LectureServiceTest">
+    <configuration name="LectureServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StudentPlan" />
       <extension name="coverage">
         <pattern>
@@ -123,14 +121,29 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.student_plan" />
-      <option name="MAIN_CLASS_NAME" value="com.student_plan.UserControllerTest" />
-      <option name="METHOD_NAME" value="addNewUser_NotUniqueMail_ThrowsNotUniqueException" />
+      <option name="MAIN_CLASS_NAME" value="com.student_plan.LectureServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LectureServiceTest.deleteLecture_success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StudentPlan" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.student_plan.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.student_plan" />
+      <option name="MAIN_CLASS_NAME" value="com.student_plan.LectureServiceTest" />
+      <option name="METHOD_NAME" value="deleteLecture_success" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserControllerTest.updateUserPassword_CorrectParams_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LectureServiceTest.deleteLecture_tookPlace_throwBadRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StudentPlan" />
       <extension name="coverage">
         <pattern>
@@ -139,14 +152,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.student_plan" />
-      <option name="MAIN_CLASS_NAME" value="com.student_plan.UserControllerTest" />
-      <option name="METHOD_NAME" value="updateUserPassword_CorrectParams_Success" />
+      <option name="MAIN_CLASS_NAME" value="com.student_plan.LectureServiceTest" />
+      <option name="METHOD_NAME" value="deleteLecture_tookPlace_throwBadRequest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserControllerTest.updateUserPassword_WrongPasswordNameSize_Failure" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LectureServiceTest.getAllLectures_empty_success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StudentPlan" />
       <extension name="coverage">
         <pattern>
@@ -155,14 +168,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.student_plan" />
-      <option name="MAIN_CLASS_NAME" value="com.student_plan.UserControllerTest" />
-      <option name="METHOD_NAME" value="updateUserPassword_WrongPasswordNameSize_Failure" />
+      <option name="MAIN_CLASS_NAME" value="com.student_plan.LectureServiceTest" />
+      <option name="METHOD_NAME" value="getAllLectures_empty_success" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserControllerTest.updateUser_CorrectParams_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LectureServiceTest.getAllLectures_oneElement_success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StudentPlan" />
       <extension name="coverage">
         <pattern>
@@ -171,8 +184,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.student_plan" />
-      <option name="MAIN_CLASS_NAME" value="com.student_plan.UserControllerTest" />
-      <option name="METHOD_NAME" value="updateUser_CorrectParams_Success" />
+      <option name="MAIN_CLASS_NAME" value="com.student_plan.LectureServiceTest" />
+      <option name="METHOD_NAME" value="getAllLectures_oneElement_success" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -187,13 +200,25 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserControllerTest.addNewUser_NotUniqueMail_ThrowsNotUniqueException" />
-        <item itemvalue="JUnit.All in StudentPlan" />
-        <item itemvalue="JUnit.UserControllerTest.updateUserPassword_WrongPasswordNameSize_Failure" />
-        <item itemvalue="JUnit.UserControllerTest.updateUser_CorrectParams_Success" />
-        <item itemvalue="JUnit.UserControllerTest.updateUserPassword_CorrectParams_Success" />
+        <item itemvalue="JUnit.LectureServiceTest" />
+        <item itemvalue="JUnit.LectureServiceTest.deleteLecture_tookPlace_throwBadRequest" />
+        <item itemvalue="JUnit.LectureServiceTest.deleteLecture_success" />
+        <item itemvalue="JUnit.LectureServiceTest.getAllLectures_oneElement_success" />
+        <item itemvalue="JUnit.LectureServiceTest.getAllLectures_empty_success" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -274,6 +299,19 @@
       <workItem from="1575484964649" duration="5585000" />
       <workItem from="1575584957734" duration="604000" />
       <workItem from="1575894447717" duration="8394000" />
+      <workItem from="1575924407889" duration="2115000" />
+      <workItem from="1575992077738" duration="17903000" />
+      <workItem from="1576070722487" duration="7417000" />
+      <workItem from="1576097922156" duration="2476000" />
+      <workItem from="1576356027645" duration="1340000" />
+      <workItem from="1576358048101" duration="521000" />
+      <workItem from="1576528658114" duration="13071000" />
+      <workItem from="1576605204020" duration="8740000" />
+      <workItem from="1576619135886" duration="5759000" />
+      <workItem from="1576683847955" duration="2676000" />
+      <workItem from="1576702161636" duration="7869000" />
+      <workItem from="1576865503281" duration="43000" />
+      <workItem from="1576865627175" duration="7053000" />
     </task>
     <servers />
   </component>
@@ -298,11 +336,65 @@
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
   </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="198" key="#Assign_Data_Sources" timestamp="1576533785961">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="552" y="198" key="#Assign_Data_Sources/0.0.1920.1080@0.0.1920.1080" timestamp="1576533785961" />
+    <state x="92" y="92" width="1736" height="896" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1576711488628">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="92" y="92" width="1736" height="896" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1576711488628" />
+    <state x="640" y="267" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1576619116265">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="640" y="267" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1576619116265" />
+    <state width="1877" height="306" key="GridCell.Tab.0.bottom" timestamp="1576712915919">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="306" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1576712915919" />
+    <state width="1877" height="306" key="GridCell.Tab.0.center" timestamp="1576712915919">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="306" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1576712915919" />
+    <state width="1877" height="306" key="GridCell.Tab.0.left" timestamp="1576712915919">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="306" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1576712915919" />
+    <state width="1877" height="306" key="GridCell.Tab.0.right" timestamp="1576712915919">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="306" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1576712915919" />
+    <state width="1877" height="363" key="GridCell.Tab.1.bottom" timestamp="1576544152271">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="363" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1576544152271" />
+    <state width="1877" height="363" key="GridCell.Tab.1.center" timestamp="1576544152270">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="363" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1576544152270" />
+    <state width="1877" height="363" key="GridCell.Tab.1.left" timestamp="1576544152270">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="363" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1576544152270" />
+    <state width="1877" height="363" key="GridCell.Tab.1.right" timestamp="1576544152271">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="363" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1576544152271" />
+    <state x="656" y="363" key="com.intellij.ide.util.TipDialog" timestamp="1576865849508">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="656" y="363" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1576865849508" />
+    <state x="616" y="250" key="run.anything.popup" timestamp="1576622562052">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="616" y="250" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1576622562052" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/student_plan$All_in_StudentPlan.ic" NAME="All in StudentPlan Coverage Results" MODIFIED="1572086106331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/student_plan$com_student_plan_in_StudentPlan.ic" NAME="com.student_plan in StudentPlan Coverage Results" MODIFIED="1572086115107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.student_plan.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/student_plan$All_in_StudentPlan.ic" NAME="All in StudentPlan Coverage Results" MODIFIED="1572086106331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/student_plan$UserControllerTest_addNewUser_Success.ic" NAME="UserControllerTest.addNewUser_Success Coverage Results" MODIFIED="1573076965895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.student_plan.*</FILTER>
     </SUITE>

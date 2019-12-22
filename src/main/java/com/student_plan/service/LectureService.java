@@ -2,29 +2,34 @@ package com.student_plan.service;
 
 
 import com.student_plan.entity.Lecture;
+import com.student_plan.entity.Type;
+import com.student_plan.entity.User;
+import com.student_plan.expections.BadRequestException;
+import com.student_plan.expections.NotDeletedException;
 import com.student_plan.expections.NotFoundException;
 import com.student_plan.repository.LectureRepository;
+import com.student_plan.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class LectureService {
 
     private final LectureRepository lectureRepository;
+    private final UserRepository userRepository;
 
     public List<Lecture> getAllLectures(){
         return lectureRepository.findAll();
     }
 
-    public Lecture getLectureById(long id){
+    public Optional<Lecture> getLectureById(long id){
         return lectureRepository
-                .findById(id)
-                .orElseThrow(() ->
-                    new NotFoundException("Lecture [id="+id+"] not found")
-                );
+                .findById(id);
     }
 
     public Lecture saveNewLecture(Lecture lecture){
@@ -32,29 +37,74 @@ public class LectureService {
     }
 
     public void deleteLectureById(long id){
-        lectureRepository
+       Lecture lecture =  lectureRepository
                 .findById(id)
                 .orElseThrow(() ->
-                    new NotFoundException("Lecture [id="+id+"] not found")
+                    new NotFoundException("Lecture [id=" + id + "] not found")
                 );
 
-        lectureRepository.delete(getLectureById(id));
+        if(!isLectureTookPlace(lecture)) {
+             lectureRepository.deleteById(id);
+        } else {
+            throw new NotDeletedException("This Lecture actually took place, cannot be deleted");
+        }
     }
 
-    public Lecture updateLecture(long lectureId, String lectureName){
+    private boolean isLectureTookPlace(Lecture lecture) {
+       LocalDate lectureDate = lecture.getDate();
+       LocalDate actualDate = LocalDate.now();
+
+       return lectureDate.isBefore(actualDate);
+
+    }
+
+    public Lecture updateLecture(long lectureId, String lectureName, LocalDate date) {
         Lecture lectureToUpdate = lectureRepository
                 .findById(lectureId)
                 .orElseThrow(() ->
-                    new NotFoundException("Lecture [id="+lectureId+"] not found")
+                    new NotFoundException("Lecture [id=" + lectureId + "] not found")
                 );
 
-        updateLectureValues(lectureName,lectureToUpdate);
+        updateLectureValues(lectureName,lectureToUpdate,date);
 
         return lectureRepository.save(lectureToUpdate);
     }
 
-    private void updateLectureValues(String lectureName, Lecture lectureToUpdate) {
+    private void updateLectureValues(String lectureName, Lecture lectureToUpdate, LocalDate date) {
         if(lectureName != null)
             lectureToUpdate.setLectureName(lectureName);
+        if(date != null)
+            lectureToUpdate.setDate(date);
+    }
+
+    public Long registerLecturerToLecture(long lectureId, long userId) {
+        Lecture lecture = lectureRepository
+                .findById(lectureId)
+                .orElseThrow(() ->
+                        new NotFoundException("Lecture [id=" + lectureId + "] not found")
+                );
+
+        User user = userRepository
+                .findById(userId)
+                .orElseThrow(() ->
+                        new NotFoundException("User [id=" + userId + "] not found")
+                );
+
+        if(!isUserRoleLecturer(user)) {
+            throw new BadRequestException("User is not a Lecturer");
+        } else {
+            return saveStatus(user, lecture);
+        }
+    }
+
+    private Long saveStatus(User user, Lecture lecture) {
+         lecture.setLecturer(user);
+
+        return lectureRepository.save(lecture).getId();
+
+    }
+
+    private boolean isUserRoleLecturer(User user) {
+       return user.getType().equals(Type.LECTURER);
     }
 }
