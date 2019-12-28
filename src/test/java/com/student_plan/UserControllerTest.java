@@ -549,6 +549,39 @@ class UserControllerTest extends AbstractTest {
                 .andExpect(jsonPath("$.studentLecturesDto[0].userId", equalTo(user.getId().intValue())))
                 .andExpect(jsonPath("$.studentLecturesDto[0].presence", equalTo(true)));
     }
+
+    @Test
+    @WithMockUser(authorities = "ADMIN")
+    void deleteUser_withPresences_Success() throws Exception {
+
+        final User user = UserModelCreator.createUser(
+                "firstName",
+                "lastName",
+                "mail@mail.com",
+                "password".toCharArray(),
+                STUDENT,
+                true);
+
+        userRepository.save(user);
+
+        final Lecture lecture = LectureModelCreator.createLecture(
+                "lectureName",
+                LocalDate.parse("2011-12-27"));
+
+        lectureRepository.save(lecture);
+
+        final StudentLecture studentLecture = StudentLectureModelCreator.createStudentLecture(
+                lecture,
+                user,
+                true);
+
+        studentLectureRepository.save(studentLecture);
+        mvc.perform(
+                delete("/api/users/" + user.getId())
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andExpect(status().isOk());
+    }
 }
 
 

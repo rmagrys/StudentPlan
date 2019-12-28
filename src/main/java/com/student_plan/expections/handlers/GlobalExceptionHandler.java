@@ -1,10 +1,7 @@
 package com.student_plan.expections.handlers;
 
-import com.student_plan.expections.BadRequestException;
-import com.student_plan.expections.NotDeletedException;
-import com.student_plan.expections.NotFoundException;
+import com.student_plan.expections.*;
 
-import com.student_plan.expections.NotUniqueException;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.http.HttpStatus;
@@ -45,5 +42,11 @@ public class GlobalExceptionHandler {
         return new ErrorResponse(409,notDeletedException.getMessage());
     }
 
+    @ExceptionHandler(NotSavedException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public ErrorResponse notSavedHandler(NotSavedException notSavedException){
+        log.info("NOT_SAVED | " + notSavedException.getMessage());
+        return  new ErrorResponse(409,notSavedException.getMessage());
+    }
 }
 

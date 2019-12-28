@@ -12,6 +12,7 @@ import com.student_plan.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -32,7 +33,7 @@ public class LectureService {
                 .findById(id);
     }
 
-    public Lecture saveNewLecture(Lecture lecture){
+    public Lecture saveNewLecture(@Valid Lecture lecture){
         return lectureRepository.save(lecture);
     }
 
@@ -50,7 +51,7 @@ public class LectureService {
         }
     }
 
-    private boolean isLectureTookPlace(Lecture lecture) {
+    private boolean isLectureTookPlace(@Valid Lecture lecture) {
        LocalDate lectureDate = lecture.getDate();
        LocalDate actualDate = LocalDate.now();
 
@@ -58,7 +59,7 @@ public class LectureService {
 
     }
 
-    public Lecture updateLecture(long lectureId, String lectureName, LocalDate date) {
+    public Lecture updateLecture(long lectureId, String lectureName, @Valid LocalDate date) {
         Lecture lectureToUpdate = lectureRepository
                 .findById(lectureId)
                 .orElseThrow(() ->
@@ -97,7 +98,7 @@ public class LectureService {
         }
     }
 
-    private Long saveStatus(User user, Lecture lecture) {
+    private Long saveStatus(User user, @Valid Lecture lecture) {
          lecture.setLecturer(user);
 
         return lectureRepository.save(lecture).getId();

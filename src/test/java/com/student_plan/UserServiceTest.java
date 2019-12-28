@@ -7,8 +7,6 @@ import com.student_plan.expections.NotFoundException;
 import com.student_plan.expections.NotUniqueException;
 import com.student_plan.repository.UserRepository;
 import com.student_plan.service.UserService;
-import org.aspectj.weaver.ast.Not;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -20,7 +18,6 @@ import java.nio.CharBuffer;
 import java.util.List;
 import java.util.Optional;
 
-import static com.student_plan.entity.Type.LECTURER;
 import static com.student_plan.entity.Type.STUDENT;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.*;
@@ -183,7 +180,9 @@ class UserServiceTest extends AbstractTest {
         assertThat(singleUser.get().getFirstName(), equalTo("firstName"));
         assertThat(singleUser.get().getLastName(), equalTo("lastName"));
         assertThat(singleUser.get().getMail(), equalTo("mail@mail.com"));
-        assertTrue(passwordEncoder.matches(String.valueOf(pass),String.valueOf(singleUser.get().getPassword())));
+        assertTrue(passwordEncoder.matches(
+                String.valueOf(pass),
+                String.valueOf(singleUser.get().getPassword())));
         assertThat(singleUser.get().getType(), equalTo(STUDENT));
         assertThat(singleUser.get().isEnabled(), equalTo(true));
     }

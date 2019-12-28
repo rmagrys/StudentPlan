@@ -4,7 +4,6 @@ import com.student_plan.repository.LectureRepository;
 import com.student_plan.repository.StudentLectureRepository;
 import com.student_plan.repository.UserRepository;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 

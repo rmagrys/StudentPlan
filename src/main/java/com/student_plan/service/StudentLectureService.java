@@ -1,15 +1,18 @@
 package com.student_plan.service;
 
 import com.student_plan.entity.Lecture;
-import com.student_plan.entity.User;
 import com.student_plan.entity.StudentLecture;
+import com.student_plan.entity.Type;
+import com.student_plan.entity.User;
 import com.student_plan.expections.NotFoundException;
+import com.student_plan.expections.NotSavedException;
 import com.student_plan.repository.LectureRepository;
 import com.student_plan.repository.StudentLectureRepository;
 import com.student_plan.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -25,19 +28,7 @@ public class StudentLectureService {
         return studentLectureRepository.findAll();
     }
 
-    public List<StudentLecture> findAllLecturesForStudent(){
-        return studentLectureRepository.findAllByStudentId();
-    }
-
-    public StudentLecture saveNewStudentLecture(StudentLecture studentLecture){
-        return studentLectureRepository.save(studentLecture);
-    }
-
-    public StudentLecture saveNewStudentLectureDependency(StudentLecture studentLecture) {
-        return studentLectureRepository.saveAndFlush(studentLecture);
-    }
-
-    public Long registerStudentLectureDependency(Long lectureId, Long studentId, boolean presence) {
+    public Long registerStudentLecturePresence(Long lectureId, Long studentId, boolean presence) {
         User user = userRepository
                 .findById(studentId)
                 .orElseThrow(() ->
@@ -50,7 +41,24 @@ public class StudentLectureService {
                     new NotFoundException("Lecture [id=" + lectureId + "] not found")
                 );
 
-        return SaveStatus(user, lecture, presence);
+
+        if(isPresenceUnique(user,lecture) && isUserRoleStudent(user) && isRegisteredAfterLecture(lecture)) {
+            return SaveStatus(user, lecture, presence);
+        } else {
+            throw new NotSavedException("Presence is not saved");
+        }
+    }
+
+    private boolean isRegisteredAfterLecture(Lecture lecture) {
+        return lecture.getDate().isBefore(LocalDate.now());
+    }
+
+    private boolean isUserRoleStudent(User user) {
+        return user.getType().equals(Type.STUDENT);
+    }
+
+    private boolean isPresenceUnique(User user, Lecture lecture) {
+        return studentLectureRepository.countByLectureAndUser(lecture, user) == 0;
     }
 
     private Long SaveStatus(User user, Lecture lecture, Boolean presence){
@@ -68,7 +76,19 @@ public class StudentLectureService {
         return studentLectureRepository
                 .findById(studentLectureId)
                 .orElseThrow(() ->
-                    new NotFoundException("Dependency [id=" + studentLectureId + "] not found")
+                    new NotFoundException("Presence [id=" + studentLectureId + "] not found")
                 );
+    }
+
+    public Long updateStudentLecturePresence(Long studentLectureId, Boolean presence) {
+        StudentLecture studentLecture = studentLectureRepository
+                .findById(studentLectureId)
+                .orElseThrow(() ->
+                        new NotFoundException("Presence [id=" + studentLectureId + "] not found")
+                );
+
+        studentLecture.setPresence(presence);
+
+       return studentLectureRepository.save(studentLecture).getId();
     }
 }

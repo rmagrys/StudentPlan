@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.time.LocalDate;
 
 import static com.student_plan.entity.Type.LECTURER;
+import static com.student_plan.entity.Type.STUDENT;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -146,14 +147,14 @@ class LectureControllerTest extends AbstractTest {
 
     @Test
     @WithMockUser(authorities = "ADMIN")
-    void updateLecture_wrongSizeParams_ThrowBadRequest() throws Exception {
+    void updateLecture_wrongDateSizeParams_ThrowBadRequest() throws Exception {
 
         final Lecture lecture = LectureModelCreator.createLecture(
                 "lectureName",
                 LocalDate.parse("2018-12-27"));
 
         final LectureParamsDto lectureToUpdate = LectureModelCreator.createLectureParamsDto(
-                "n",
+                "l",
                 "999991",
                 "9299",
                 "1");
@@ -167,6 +168,7 @@ class LectureControllerTest extends AbstractTest {
         )
                 .andExpect(status().isBadRequest());
     }
+
 
     @Test
     @WithMockUser(authorities = "ADMIN")
@@ -346,4 +348,66 @@ class LectureControllerTest extends AbstractTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$",equalTo(lecture.getId().intValue())));
     }
+
+    @Test
+    @WithMockUser(authorities = "ADMIN")
+    void updateLecturerToLecture_wrongLectureId_ThrowsNotFound() throws Exception{
+
+        mvc.perform(
+                post("/api/lectures/12345/lecturer/12345/ascribe")
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.code",equalTo(404)))
+                .andExpect(jsonPath("$.message",equalTo("Lecture [id=12345] not found")));
+    }
+
+    @Test
+    @WithMockUser(authorities = "ADMIN")
+    void updateLecturerToLecture_wrongUserId_ThrowsNotFound() throws Exception{
+
+        final Lecture lecture = LectureModelCreator.createLecture(
+                "lectureName",
+                LocalDate.parse("2011-12-27"));
+
+        lectureRepository.save(lecture);
+
+        mvc.perform(
+                post("/api/lectures/"+ lecture.getId() + "/lecturer/12345/ascribe")
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.code",equalTo(404)))
+                .andExpect(jsonPath("$.message",equalTo("User [id=12345] not found")));
+    }
+
+    @Test
+    @WithMockUser(authorities = "ADMIN")
+    void updateLecturerToLecture_NotLecturer_ThrowsBadRequest() throws Exception{
+
+        final Lecture lecture = LectureModelCreator.createLecture(
+                "lectureName",
+                LocalDate.parse("2011-12-27"));
+
+        final User user = UserModelCreator.createUser(
+                "firstName",
+                "lastName",
+                "mail@mail.com",
+                "password".toCharArray(),
+                STUDENT,
+                true);
+
+        lectureRepository.save(lecture);
+        userService.saveNewUser(user);
+
+        mvc.perform(
+                post("/api/lectures/" + lecture.getId() +  "/lecturer/" + user.getId() + "/ascribe")
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.code",equalTo(400)))
+                .andExpect(jsonPath("$.message",equalTo("User is not a Lecturer")));
+    }
+
+
 }

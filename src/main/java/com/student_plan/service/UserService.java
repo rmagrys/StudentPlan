@@ -5,6 +5,7 @@ import com.student_plan.entity.User;
 import com.student_plan.expections.BadRequestException;
 import com.student_plan.expections.NotFoundException;
 import com.student_plan.expections.NotUniqueException;
+import com.student_plan.repository.StudentLectureRepository;
 import com.student_plan.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -12,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.nio.CharBuffer;
 import java.util.List;
@@ -25,6 +27,7 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final StudentLectureRepository studentLectureRepository;
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
@@ -53,13 +56,15 @@ public class UserService {
         return userRepository.countByMail(mail) == 0;
     }
 
+    @Transactional
     public void deleteById(Long id){
         userRepository
                 .findById(id)
                 .orElseThrow(() ->
-                    new NotFoundException("User [id=" + id + "] not found")
+                            new NotFoundException("User [id=" + id + "] not found")
                 );
 
+        studentLectureRepository.deleteAllByUserId(id);
         userRepository.deleteById(id);
     }
 

@@ -2,30 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b40c2dd-779a-4ef8-bd62-c2ca972ef2aa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/LectureParamsDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/expections/NotDeletedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureModelCreator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/StudentLectureModelCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/expections/NotSavedException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudentPlan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/StudentPlan.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/config/InitialAdminAccountSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/config/InitialAdminAccountSetup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/LectureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/LectureController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/StudentLectureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/StudentLectureController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/LectureDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/LectureDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/LectureDtoConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/LectureDtoConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/LectureParamsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/LectureParamsDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/UserDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/Lecture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/Lecture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/StudentLecture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/StudentLecture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/Type.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/expections/handlers/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/expections/handlers/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/repository/StudentLectureRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/repository/StudentLectureRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/service/LectureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/service/LectureService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/service/StudentLectureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/service/StudentLectureService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/AbstractTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/AbstractTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureModelCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureModelCreator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/StudentLectureControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/StudentLectureControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/StudentLectureServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/StudentLectureServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/UserControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/UserServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/META-INF/StudentPlan.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/META-INF/StudentPlan.kotlin_module" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,23 +111,16 @@
       <recent name="com.student_plan.entity" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LectureServiceTest">
-    <configuration name="LectureServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.All in StudentPlan">
+    <configuration name="All in StudentPlan" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StudentPlan" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.student_plan.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.student_plan" />
-      <option name="MAIN_CLASS_NAME" value="com.student_plan.LectureServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LectureServiceTest.deleteLecture_success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StudentLectureServiceTest.registerStudentLecturePresence_wrongId_ThrowsNotSaved" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StudentPlan" />
       <extension name="coverage">
         <pattern>
@@ -136,14 +129,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.student_plan" />
-      <option name="MAIN_CLASS_NAME" value="com.student_plan.LectureServiceTest" />
-      <option name="METHOD_NAME" value="deleteLecture_success" />
+      <option name="MAIN_CLASS_NAME" value="com.student_plan.StudentLectureServiceTest" />
+      <option name="METHOD_NAME" value="registerStudentLecturePresence_wrongId_ThrowsNotSaved" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LectureServiceTest.deleteLecture_tookPlace_throwBadRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StudentLectureServiceTest.updateStudentLecturePresence_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StudentPlan" />
       <extension name="coverage">
         <pattern>
@@ -152,14 +145,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.student_plan" />
-      <option name="MAIN_CLASS_NAME" value="com.student_plan.LectureServiceTest" />
-      <option name="METHOD_NAME" value="deleteLecture_tookPlace_throwBadRequest" />
+      <option name="MAIN_CLASS_NAME" value="com.student_plan.StudentLectureServiceTest" />
+      <option name="METHOD_NAME" value="updateStudentLecturePresence_Success" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LectureServiceTest.getAllLectures_empty_success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StudentLectureServiceTest.updateStudentLecturePresence_wrongId_ThrowsNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StudentPlan" />
       <extension name="coverage">
         <pattern>
@@ -168,14 +161,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.student_plan" />
-      <option name="MAIN_CLASS_NAME" value="com.student_plan.LectureServiceTest" />
-      <option name="METHOD_NAME" value="getAllLectures_empty_success" />
+      <option name="MAIN_CLASS_NAME" value="com.student_plan.StudentLectureServiceTest" />
+      <option name="METHOD_NAME" value="updateStudentLecturePresence_wrongId_ThrowsNotFound" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LectureServiceTest.getAllLectures_oneElement_success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StudentLectureServiceTest.updateStudentLecturePresence_wrongParam_ThrowsNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StudentPlan" />
       <extension name="coverage">
         <pattern>
@@ -184,8 +177,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.student_plan" />
-      <option name="MAIN_CLASS_NAME" value="com.student_plan.LectureServiceTest" />
-      <option name="METHOD_NAME" value="getAllLectures_oneElement_success" />
+      <option name="MAIN_CLASS_NAME" value="com.student_plan.StudentLectureServiceTest" />
+      <option name="METHOD_NAME" value="updateStudentLecturePresence_wrongParam_ThrowsNotFound" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -200,11 +193,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LectureServiceTest" />
-        <item itemvalue="JUnit.LectureServiceTest.deleteLecture_tookPlace_throwBadRequest" />
-        <item itemvalue="JUnit.LectureServiceTest.deleteLecture_success" />
-        <item itemvalue="JUnit.LectureServiceTest.getAllLectures_oneElement_success" />
-        <item itemvalue="JUnit.LectureServiceTest.getAllLectures_empty_success" />
+        <item itemvalue="JUnit.All in StudentPlan" />
+        <item itemvalue="JUnit.StudentLectureServiceTest.updateStudentLecturePresence_wrongParam_ThrowsNotFound" />
+        <item itemvalue="JUnit.StudentLectureServiceTest.updateStudentLecturePresence_wrongId_ThrowsNotFound" />
+        <item itemvalue="JUnit.StudentLectureServiceTest.updateStudentLecturePresence_Success" />
+        <item itemvalue="JUnit.StudentLectureServiceTest.registerStudentLecturePresence_wrongId_ThrowsNotSaved" />
       </list>
     </recent_temporary>
   </component>
@@ -312,6 +305,12 @@
       <workItem from="1576702161636" duration="7869000" />
       <workItem from="1576865503281" duration="43000" />
       <workItem from="1576865627175" duration="7053000" />
+      <workItem from="1577112564361" duration="18489000" />
+      <workItem from="1577184747312" duration="12574000" />
+      <workItem from="1577280194260" duration="7526000" />
+      <workItem from="1577353521391" duration="6808000" />
+      <workItem from="1577443937437" duration="21937000" />
+      <workItem from="1577529120377" duration="9524000" />
     </task>
     <servers />
   </component>
@@ -341,30 +340,38 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="552" y="198" key="#Assign_Data_Sources/0.0.1920.1080@0.0.1920.1080" timestamp="1576533785961" />
+    <state x="552" y="199" key="#Inspections" timestamp="1577458495221">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="552" y="199" key="#Inspections/0.0.1920.1080@0.0.1920.1080" timestamp="1577458495221" />
     <state x="92" y="92" width="1736" height="896" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1576711488628">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="92" y="92" width="1736" height="896" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1576711488628" />
+    <state x="765" y="250" key="#com.intellij.ide.util.MemberChooser" timestamp="1577536768762">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="765" y="250" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1577536768762" />
     <state x="640" y="267" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1576619116265">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="640" y="267" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1576619116265" />
-    <state width="1877" height="306" key="GridCell.Tab.0.bottom" timestamp="1576712915919">
+    <state width="1877" height="306" key="GridCell.Tab.0.bottom" timestamp="1577539472820">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="306" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1576712915919" />
-    <state width="1877" height="306" key="GridCell.Tab.0.center" timestamp="1576712915919">
+    <state width="1877" height="306" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1577539472820" />
+    <state width="1877" height="306" key="GridCell.Tab.0.center" timestamp="1577539472820">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="306" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1576712915919" />
-    <state width="1877" height="306" key="GridCell.Tab.0.left" timestamp="1576712915919">
+    <state width="1877" height="306" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1577539472820" />
+    <state width="1877" height="306" key="GridCell.Tab.0.left" timestamp="1577539472819">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="306" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1576712915919" />
-    <state width="1877" height="306" key="GridCell.Tab.0.right" timestamp="1576712915919">
+    <state width="1877" height="306" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1577539472819" />
+    <state width="1877" height="306" key="GridCell.Tab.0.right" timestamp="1577539472820">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="306" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1576712915919" />
+    <state width="1877" height="306" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1577539472820" />
     <state width="1877" height="363" key="GridCell.Tab.1.bottom" timestamp="1576544152271">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -381,14 +388,22 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1877" height="363" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1576544152271" />
-    <state x="656" y="363" key="com.intellij.ide.util.TipDialog" timestamp="1576865849508">
+    <state width="499" height="446" key="SwitcherDM" timestamp="1577457139262">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="656" y="363" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1576865849508" />
+    <state width="499" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1577457139262" />
+    <state x="656" y="363" key="com.intellij.ide.util.TipDialog" timestamp="1577529939709">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="656" y="363" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1577529939709" />
     <state x="616" y="250" key="run.anything.popup" timestamp="1576622562052">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="616" y="250" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1576622562052" />
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1577458563629">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1577458563629" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/student_plan$com_student_plan_in_StudentPlan.ic" NAME="com.student_plan in StudentPlan Coverage Results" MODIFIED="1572086115107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

@@ -19,6 +19,7 @@ public class  StudentLectureController {
     private final StudentLectureService studentLectureService;
 
     @GetMapping
+    @PreAuthorize("hasAnyAuthority('LECTURER','ADMIN')")
     public List<StudentLectureDto> getAll(){
         return studentLectureService
                 .getAllStudentLectures()
@@ -26,25 +27,30 @@ public class  StudentLectureController {
                 .map(StudentLectureDtoConverter::toDto)
                 .collect(Collectors.toList());
     }
+
     @GetMapping("/{studentLectureId}")
+    @PreAuthorize("hasAnyAuthority('LECTURER','ADMIN')")
     public StudentLectureDto getOne(@PathVariable Long studentLectureId){
         StudentLecture studentLecture = studentLectureService.findOneById(studentLectureId);
         return StudentLectureDtoConverter.toDto(studentLecture);
     }
 
-    @PostMapping
-    public StudentLectureDto addNewStudentLecture(@RequestBody StudentLectureDto studentLectureDto){
-        StudentLecture studentLecture = StudentLectureDtoConverter.toEntity(studentLectureDto);
-        return StudentLectureDtoConverter.toDto(studentLectureService.saveNewStudentLecture(studentLecture));
-    }
-
     @PostMapping("lecture/{lectureId}/student/{studentId}/ascribe")
-    @PreAuthorize("hasAnyAuthority('STUDENT','ADMIN')")
-    public Long addNewStudentLectureDependency(
+    @PreAuthorize("hasAnyAuthority('STUDENT','ADMIN','LECTURER')")
+    public Long addNewStudentLecturePresence(
              @PathVariable Long lectureId,
              @PathVariable Long studentId,
              @RequestParam(value = "present") boolean presence){
 
-        return studentLectureService.registerStudentLectureDependency(lectureId, studentId, presence);
+        return studentLectureService.registerStudentLecturePresence(lectureId, studentId, presence);
+    }
+
+    @PatchMapping("/{studentLectureId}/presence-update")
+    @PreAuthorize("hasAnyAuthority('LECTURER','ADMIN')")
+    public Long updateStudentLecturePresence(
+            @PathVariable Long studentLectureId,
+            @RequestParam(value = "present") Boolean presence) {
+
+        return studentLectureService.updateStudentLecturePresence(studentLectureId,presence);
     }
 }
