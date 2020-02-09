@@ -91,11 +91,15 @@ public class LectureService {
                         new NotFoundException("User [id=" + userId + "] not found")
                 );
 
-        if(!isUserRoleLecturer(user)) {
-            throw new BadRequestException("User is not a Lecturer");
+        if(!isUserRoleLecturer(user) && isLectureOccupied(lecture)) {
+            throw new BadRequestException("Cannot update lecturer to lecture");
         } else {
             return saveStatus(user, lecture);
         }
+    }
+
+    private boolean isLectureOccupied(Lecture lecture) {
+        return lectureRepository.countLectureByIdAndLecturerIsNull(lecture.getId()) > 0;
     }
 
     private Long saveStatus(User user, @Valid Lecture lecture) {

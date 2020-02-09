@@ -47,10 +47,10 @@ public class User {
     @Column
     private boolean enabled = true;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<StudentLecture> studentLectures;
 
-    @OneToMany(mappedBy = "lecturer")
+    @OneToMany(mappedBy = "lecturer", fetch = FetchType.LAZY)
     private List<Lecture> lectures;
 
 

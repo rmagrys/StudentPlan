@@ -35,7 +35,7 @@ public class Lecture {
     private User lecturer;
 
 
-    @OneToMany(mappedBy = "lecture", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "lecture", fetch = FetchType.LAZY)
     @JsonBackReference
     private List<StudentLecture> studentLectures;
 }

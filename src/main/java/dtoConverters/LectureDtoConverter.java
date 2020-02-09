@@ -1,5 +1,7 @@
-package com.student_plan.dto;
+package dtoConverters;
 
+import com.student_plan.dto.LectureDto;
+import com.student_plan.dto.LectureParamsDto;
 import com.student_plan.entity.Lecture;
 
 import java.time.LocalDate;

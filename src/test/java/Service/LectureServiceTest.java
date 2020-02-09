@@ -1,6 +1,9 @@
-package com.student_plan;
+package Service;
 
 
+import ModelCreator.LectureModelCreator;
+import ModelCreator.UserModelCreator;
+import com.student_plan.AbstractTest;
 import com.student_plan.entity.Lecture;
 import com.student_plan.entity.User;
 import com.student_plan.expections.BadRequestException;

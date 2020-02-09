@@ -1,0 +1,12 @@
+com\student_plan\UserServiceTest.class
+com\student_plan\TestUtils.class
+com\student_plan\LectureServiceTest.class
+com\student_plan\LectureModelCreator.class
+com\student_plan\StudentLectureControllerTest.class
+com\student_plan\StudentLectureServiceTest.class
+com\student_plan\UserPlanApplicationTests.class
+com\student_plan\StudentLectureModelCreator.class
+com\student_plan\LectureControllerTest.class
+com\student_plan\AbstractTest.class
+com\student_plan\UserControllerTest.class
+com\student_plan\UserModelCreator.class

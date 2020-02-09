@@ -1,13 +1,13 @@
-package com.student_plan;
+package ModelCreator;
 
 import com.student_plan.dto.UserParamsDto;
 import com.student_plan.dto.UserPasswordDto;
 import com.student_plan.entity.Type;
 import com.student_plan.entity.User;
 
-class UserModelCreator {
+public class UserModelCreator {
 
-    static User createUser(final String firstName, final String lastName, final String mail,
+   public static User createUser(final String firstName, final String lastName, final String mail,
                            final char[] password, final Type type, final boolean enabled){
 
         return User
@@ -21,7 +21,7 @@ class UserModelCreator {
                 .build();
     }
 
-    static UserPasswordDto createUserPasswordDto(final char[] oldPassword, final char[] newPassword){
+   public static UserPasswordDto createUserPasswordDto(final char[] oldPassword, final char[] newPassword){
 
         return UserPasswordDto
                 .builder()
@@ -30,7 +30,7 @@ class UserModelCreator {
                 .build();
     }
 
-    static UserParamsDto createUserParamsDto(final String firstName, final String lastName, final String mail){
+   public static UserParamsDto createUserParamsDto(final String firstName, final String lastName, final String mail){
 
         return UserParamsDto
                 .builder()

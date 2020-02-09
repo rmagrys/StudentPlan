@@ -1,6 +1,8 @@
 package com.student_plan.service;
 
 
+import com.student_plan.dto.UserParamsDto;
+import com.student_plan.dto.UserPasswordDto;
 import com.student_plan.entity.User;
 import com.student_plan.expections.BadRequestException;
 import com.student_plan.expections.NotFoundException;
@@ -40,7 +42,6 @@ public class UserService {
     public User saveNewUser(@Valid User user) throws NotUniqueException {
         if(isEmailUnique(user.getMail())){
                 setUserPassword(user);
-
                 return userRepository.save(user);
         } else {
                 throw new NotUniqueException("Email already exist");
@@ -68,8 +69,8 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    public User updateUser(String firstName, String lastName, String mail, Long id){
-       if(!isEmailUnique(mail)) {
+    public User updateUser(UserParamsDto userParamsDto, Long id){
+       if(!isEmailUnique(userParamsDto.getMail())) {
            throw new NotUniqueException("Email already exist");
        } else {
            User userForUpdate = userRepository
@@ -77,7 +78,9 @@ public class UserService {
                    .orElseThrow(() ->
                            new NotFoundException("User [id=" + id + "] not found")
                    );
-           updateUserValues(firstName, lastName, mail, userForUpdate);
+           updateUserValues(userParamsDto.getFirstName(),
+                   userParamsDto.getLastName(),
+                   userParamsDto.getMail(), userForUpdate);
 
            return userRepository.save(userForUpdate);
        }
@@ -93,7 +96,7 @@ public class UserService {
             user.setMail(mail);
     }
 
-    public User updateUserPassword(char[] oldPassword, char[] newPassword, Long userId) {
+    public User updateUserPassword(UserPasswordDto userPasswordDto, Long userId) {
 
         User userForUpdatePassword = userRepository
                 .findById(userId)
@@ -102,7 +105,7 @@ public class UserService {
                 );
 
         if(isCurrentUserEqualToChangingUser(userForUpdatePassword)) {
-            changeUserPassword(newPassword, oldPassword, userForUpdatePassword);
+            changeUserPassword(userPasswordDto.getNewPassword(), userPasswordDto.getOldPassword(), userForUpdatePassword);
         } else throw new BadRequestException("User [id" + userId + "] is not logged user");
 
 
@@ -119,7 +122,6 @@ public class UserService {
                             .encode(newPasswordBuffer)
                             .toCharArray());
         } else {
-
             throw new BadRequestException("User old password is incorrect");
         }
     }
@@ -139,11 +141,15 @@ public class UserService {
     }
 
     public User saveNewLecturer(@Valid User lecturer) {
-        CharBuffer passwordBuffer = CharBuffer.wrap(lecturer.getPassword());
-        lecturer.setPassword(passwordEncoder.encode(passwordBuffer).toCharArray());
-        lecturer.setType(LECTURER);
+        if(isEmailUnique(lecturer.getMail())){
+            CharBuffer passwordBuffer = CharBuffer.wrap(lecturer.getPassword());
+            lecturer.setPassword(passwordEncoder.encode(passwordBuffer).toCharArray());
+            lecturer.setType(LECTURER);
 
-        return userRepository.save(lecturer);
+            return userRepository.save(lecturer);
+        } else {
+            throw new NotUniqueException("Email already exist");
+        }
     }
 }
 

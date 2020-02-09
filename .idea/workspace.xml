@@ -2,30 +2,51 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b40c2dd-779a-4ef8-bd62-c2ca972ef2aa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/expections/NotSavedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_20_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_core_2_9_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_schema_2_9_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spi_2_9_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spring_web_2_9_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger2_2_9_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_common_2_9_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_ui_2_9_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_annotations_1_5_20.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_models_1_5_20.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mapstruct_mapstruct_1_2_0_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_plugin_spring_plugin_core_1_2_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_plugin_spring_plugin_metadata_1_2_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/config/SwaggerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudentPlan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/StudentPlan.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/config/InitialAdminAccountSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/config/InitialAdminAccountSetup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/LectureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/LectureController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/StudentLectureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/StudentLectureController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/LectureDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/LectureDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/LectureDtoConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/LectureDtoConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/LectureParamsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/LectureParamsDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/controler/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/LectureDtoConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dtoConverters/LectureDtoConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/StudentLectureDtoConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dtoConverters/StudentLectureDtoConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/dto/UserDtoConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dtoConverters/UserDtoConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/Lecture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/Lecture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/Type.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/expections/handlers/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/expections/handlers/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/repository/StudentLectureRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/repository/StudentLectureRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/repository/LectureRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/repository/LectureRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/service/LectureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/service/LectureService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/service/StudentLectureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/service/StudentLectureService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/student_plan/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/student_plan/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/AbstractTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/AbstractTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureModelCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureModelCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/StudentLectureControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/StudentLectureControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/StudentLectureServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/StudentLectureServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/UserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/student_plan/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Controller/LectureControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureModelCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ModelCreator/LectureModelCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/LectureServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Service/LectureServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/StudentLectureControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Controller/StudentLectureControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/StudentLectureModelCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ModelCreator/StudentLectureModelCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/StudentLectureServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Service/StudentLectureServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Controller/UserControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/UserModelCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ModelCreator/UserModelCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/student_plan/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Service/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.student_plan.UserPlanApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.student_plan.UserPlanApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.student_plan.UserPlanApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.student_plan.UserPlanApplicationTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/user-plan-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/user-plan-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +132,7 @@
       <recent name="com.student_plan.entity" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in StudentPlan">
+  <component name="RunManager" selected="Spring Boot.StudentPlanApplication">
     <configuration name="All in StudentPlan" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StudentPlan" />
       <option name="PACKAGE_NAME" value="" />
@@ -124,12 +145,12 @@
       <module name="StudentPlan" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.student_plan.*" />
+          <option name="PATTERN" value="ModelCreator.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.student_plan" />
-      <option name="MAIN_CLASS_NAME" value="com.student_plan.StudentLectureServiceTest" />
+      <option name="PACKAGE_NAME" value="Service" />
+      <option name="MAIN_CLASS_NAME" value="Service.StudentLectureServiceTest" />
       <option name="METHOD_NAME" value="registerStudentLecturePresence_wrongId_ThrowsNotSaved" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -140,12 +161,12 @@
       <module name="StudentPlan" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.student_plan.*" />
+          <option name="PATTERN" value="ModelCreator.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.student_plan" />
-      <option name="MAIN_CLASS_NAME" value="com.student_plan.StudentLectureServiceTest" />
+      <option name="PACKAGE_NAME" value="Service" />
+      <option name="MAIN_CLASS_NAME" value="Service.StudentLectureServiceTest" />
       <option name="METHOD_NAME" value="updateStudentLecturePresence_Success" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -156,12 +177,12 @@
       <module name="StudentPlan" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.student_plan.*" />
+          <option name="PATTERN" value="ModelCreator.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.student_plan" />
-      <option name="MAIN_CLASS_NAME" value="com.student_plan.StudentLectureServiceTest" />
+      <option name="PACKAGE_NAME" value="Service" />
+      <option name="MAIN_CLASS_NAME" value="Service.StudentLectureServiceTest" />
       <option name="METHOD_NAME" value="updateStudentLecturePresence_wrongId_ThrowsNotFound" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -172,12 +193,12 @@
       <module name="StudentPlan" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.student_plan.*" />
+          <option name="PATTERN" value="ModelCreator.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.student_plan" />
-      <option name="MAIN_CLASS_NAME" value="com.student_plan.StudentLectureServiceTest" />
+      <option name="PACKAGE_NAME" value="Service" />
+      <option name="MAIN_CLASS_NAME" value="Service.StudentLectureServiceTest" />
       <option name="METHOD_NAME" value="updateStudentLecturePresence_wrongParam_ThrowsNotFound" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -311,6 +332,18 @@
       <workItem from="1577353521391" duration="6808000" />
       <workItem from="1577443937437" duration="21937000" />
       <workItem from="1577529120377" duration="9524000" />
+      <workItem from="1577900934156" duration="6972000" />
+      <workItem from="1577958575917" duration="4774000" />
+      <workItem from="1578583645685" duration="5100000" />
+      <workItem from="1579108026048" duration="786000" />
+      <workItem from="1579721603220" duration="1377000" />
+      <workItem from="1580236839922" duration="2761000" />
+      <workItem from="1580581591811" duration="7190000" />
+      <workItem from="1580632652787" duration="23316000" />
+      <workItem from="1580830775107" duration="2290000" />
+      <workItem from="1580893056529" duration="1603000" />
+      <workItem from="1581007661966" duration="1181000" />
+      <workItem from="1581259623097" duration="473000" />
     </task>
     <servers />
   </component>
@@ -352,58 +385,85 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="765" y="250" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1577536768762" />
-    <state x="640" y="267" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1576619116265">
+    <state x="640" y="267" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1580833055425">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state x="640" y="267" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1580833055425" />
     <state x="640" y="267" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1576619116265" />
-    <state width="1877" height="306" key="GridCell.Tab.0.bottom" timestamp="1577539472820">
+    <state width="1877" height="408" key="GridCell.Tab.0.bottom" timestamp="1581260108347">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="306" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1577539472820" />
-    <state width="1877" height="306" key="GridCell.Tab.0.center" timestamp="1577539472820">
+    <state width="1877" height="408" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1581260108347" />
+    <state width="1877" height="306" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1577963364515" />
+    <state width="1877" height="408" key="GridCell.Tab.0.center" timestamp="1581260108347">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="306" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1577539472820" />
-    <state width="1877" height="306" key="GridCell.Tab.0.left" timestamp="1577539472819">
+    <state width="1877" height="408" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1581260108347" />
+    <state width="1877" height="306" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1577963364515" />
+    <state width="1877" height="408" key="GridCell.Tab.0.left" timestamp="1581260108347">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="306" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1577539472819" />
-    <state width="1877" height="306" key="GridCell.Tab.0.right" timestamp="1577539472820">
+    <state width="1877" height="408" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1581260108347" />
+    <state width="1877" height="306" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1577963364515" />
+    <state width="1877" height="408" key="GridCell.Tab.0.right" timestamp="1581260108347">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="306" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1577539472820" />
-    <state width="1877" height="363" key="GridCell.Tab.1.bottom" timestamp="1576544152271">
+    <state width="1877" height="408" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1581260108347" />
+    <state width="1877" height="306" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1577963364515" />
+    <state width="1877" height="408" key="GridCell.Tab.1.bottom" timestamp="1581260108348">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="363" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1576544152271" />
-    <state width="1877" height="363" key="GridCell.Tab.1.center" timestamp="1576544152270">
+    <state width="1877" height="408" key="GridCell.Tab.1.bottom/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1581260108348" />
+    <state width="1877" height="306" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1577963364515" />
+    <state width="1877" height="408" key="GridCell.Tab.1.center" timestamp="1581260108347">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="363" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1576544152270" />
-    <state width="1877" height="363" key="GridCell.Tab.1.left" timestamp="1576544152270">
+    <state width="1877" height="408" key="GridCell.Tab.1.center/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1581260108347" />
+    <state width="1877" height="306" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1577963364515" />
+    <state width="1877" height="408" key="GridCell.Tab.1.left" timestamp="1581260108347">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="363" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1576544152270" />
-    <state width="1877" height="363" key="GridCell.Tab.1.right" timestamp="1576544152271">
+    <state width="1877" height="408" key="GridCell.Tab.1.left/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1581260108347" />
+    <state width="1877" height="306" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1577963364515" />
+    <state width="1877" height="408" key="GridCell.Tab.1.right" timestamp="1581260108348">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="363" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1576544152271" />
+    <state width="1877" height="408" key="GridCell.Tab.1.right/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1581260108348" />
+    <state width="1877" height="306" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1577963364515" />
+    <state width="1877" height="363" key="GridCell.Tab.2.bottom" timestamp="1577904152077">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="363" key="GridCell.Tab.2.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1577904152077" />
+    <state width="1877" height="363" key="GridCell.Tab.2.center" timestamp="1577904152077">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="363" key="GridCell.Tab.2.center/0.0.1920.1080@0.0.1920.1080" timestamp="1577904152077" />
+    <state width="1877" height="363" key="GridCell.Tab.2.left" timestamp="1577904152077">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="363" key="GridCell.Tab.2.left/0.0.1920.1080@0.0.1920.1080" timestamp="1577904152077" />
+    <state width="1877" height="363" key="GridCell.Tab.2.right" timestamp="1577904152077">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="363" key="GridCell.Tab.2.right/0.0.1920.1080@0.0.1920.1080" timestamp="1577904152077" />
     <state width="499" height="446" key="SwitcherDM" timestamp="1577457139262">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="499" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1577457139262" />
-    <state x="656" y="363" key="com.intellij.ide.util.TipDialog" timestamp="1577529939709">
+    <state x="656" y="363" key="com.intellij.ide.util.TipDialog" timestamp="1581259950468">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="656" y="363" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1577529939709" />
+    <state x="656" y="363" key="com.intellij.ide.util.TipDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1581259950468" />
+    <state x="656" y="363" key="com.intellij.ide.util.TipDialog/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1580633078688" />
+    <state x="656" y="363" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1578584026132" />
     <state x="616" y="250" key="run.anything.popup" timestamp="1576622562052">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="616" y="250" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1576622562052" />
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1577458563629">
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1577904922815">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1577458563629" />
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1577904922815" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/student_plan$com_student_plan_in_StudentPlan.ic" NAME="com.student_plan in StudentPlan Coverage Results" MODIFIED="1572086115107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

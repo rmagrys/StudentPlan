@@ -1,6 +1,7 @@
-package com.student_plan.dto;
+package dtoConverters;
 
 
+import com.student_plan.dto.StudentLectureDto;
 import com.student_plan.entity.StudentLecture;
 
 public class StudentLectureDtoConverter {

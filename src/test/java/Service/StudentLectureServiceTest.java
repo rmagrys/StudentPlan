@@ -1,5 +1,9 @@
-package com.student_plan;
+package Service;
 
+import ModelCreator.LectureModelCreator;
+import ModelCreator.StudentLectureModelCreator;
+import ModelCreator.UserModelCreator;
+import com.student_plan.AbstractTest;
 import com.student_plan.entity.Lecture;
 import com.student_plan.entity.StudentLecture;
 import com.student_plan.entity.User;
@@ -23,7 +27,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class StudentLectureServiceTest extends AbstractTest{
+public class StudentLectureServiceTest extends AbstractTest {
 
     @Autowired
     private StudentLectureService studentLectureService;

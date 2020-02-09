@@ -1,4 +1,4 @@
-package com.student_plan;
+package ModelCreator;
 
 import com.student_plan.dto.LectureParamsDto;
 import com.student_plan.entity.Lecture;
@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 public class LectureModelCreator {
 
-    static Lecture createLecture(final String lectureName, final LocalDate date){
+   public static Lecture createLecture(final String lectureName, final LocalDate date){
 
         return  Lecture
                     .builder()
@@ -16,7 +16,7 @@ public class LectureModelCreator {
                     .build();
     }
 
-    static LectureParamsDto createLectureParamsDto(final String lectureName, final String day,
+   public static LectureParamsDto createLectureParamsDto(final String lectureName, final String day,
                                                    final String month, final String year){
 
         return LectureParamsDto

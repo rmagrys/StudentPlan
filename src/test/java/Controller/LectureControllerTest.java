@@ -1,5 +1,9 @@
-package com.student_plan;
+package Controller;
 
+import ModelCreator.LectureModelCreator;
+import ModelCreator.UserModelCreator;
+import com.student_plan.AbstractTest;
+import com.student_plan.TestUtils;
 import com.student_plan.dto.LectureParamsDto;
 import com.student_plan.entity.Lecture;
 import com.student_plan.entity.User;

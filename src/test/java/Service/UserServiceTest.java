@@ -1,5 +1,9 @@
-package com.student_plan;
+package Service;
 
+import ModelCreator.UserModelCreator;
+import com.student_plan.AbstractTest;
+import com.student_plan.dto.UserParamsDto;
+import com.student_plan.dto.UserPasswordDto;
 import com.student_plan.entity.Type;
 import com.student_plan.entity.User;
 import com.student_plan.expections.BadRequestException;
@@ -134,12 +138,19 @@ class UserServiceTest extends AbstractTest {
                 STUDENT,
                 true);
 
+        final UserParamsDto userParamsDto = UserParamsDto
+                .builder()
+                    .firstName("name")
+                    .lastName("surname")
+                    .mail("test@mail.com")
+                .build();
+
         //when
         userRepository.save(user);
 
 
         //then
-        userService.updateUser("name","surname","test@mail.com",user.getId());
+        userService.updateUser(userParamsDto,user.getId());
 
         final Optional<User> singleUser = userRepository.findById(user.getId());
 
@@ -165,6 +176,11 @@ class UserServiceTest extends AbstractTest {
                 STUDENT,
                 true);
 
+        final UserPasswordDto userPasswordDto = UserPasswordDto
+                .builder()
+                    .oldPassword("password".toCharArray())
+                    .newPassword("pass".toCharArray())
+                .build();
 
         //when
         userService.saveNewUser(user);
@@ -172,7 +188,7 @@ class UserServiceTest extends AbstractTest {
 
 
         //then
-        userService.updateUserPassword("password".toCharArray() ,"pass".toCharArray(),user.getId());
+        userService.updateUserPassword(userPasswordDto,user.getId());
 
         final Optional<User> singleUser = userRepository.findById(user.getId());
 
@@ -200,16 +216,18 @@ class UserServiceTest extends AbstractTest {
                 STUDENT,
                 true);
 
-
+        final UserPasswordDto userPasswordDto = UserPasswordDto
+                .builder()
+                    .oldPassword("wrongPassword".toCharArray())
+                    .newPassword("pass".toCharArray())
+                .build();
         //when
         userService.saveNewUser(user);
 
         //then
 
         assertThrows(BadRequestException.class, () -> userService
-                .updateUserPassword("wrongPassword"
-                        .toCharArray() ,"pass"
-                        .toCharArray(),user.getId())
+                .updateUserPassword(userPasswordDto, user.getId())
         );
     }
     @Test
@@ -224,6 +242,13 @@ class UserServiceTest extends AbstractTest {
                 STUDENT,
                 true);
 
+        final UserParamsDto userParamsDto = UserParamsDto
+                .builder()
+                .firstName("n")
+                .lastName("surname")
+                .mail("test@mail.com")
+                .build();
+
         //when
         userRepository.save(user);
 
@@ -232,9 +257,7 @@ class UserServiceTest extends AbstractTest {
 
         assertThrows(TransactionSystemException.class, () -> userService
                 .updateUser(
-                        "n",
-                        "surname",
-                        "test@mail.com",
+                        userParamsDto,
                         user.getId())
         );
     }
@@ -251,6 +274,12 @@ class UserServiceTest extends AbstractTest {
                 STUDENT,
                 true);
 
+        final UserParamsDto userParamsDto = UserParamsDto
+                .builder()
+                .firstName("name")
+                .lastName("surname")
+                .mail("x")
+                .build();
         //when
         userRepository.save(user);
 
@@ -258,9 +287,7 @@ class UserServiceTest extends AbstractTest {
         //then
         assertThrows(TransactionSystemException.class, () -> userService
                 .updateUser(
-                        "name",
-                        "surname",
-                        "x",
+                        userParamsDto,
                         user.getId())
         );
     }
@@ -325,12 +352,17 @@ class UserServiceTest extends AbstractTest {
     @Test
     void updateUser_WrongId_ThrowsNotFound() {
 
+        final UserParamsDto userParamsDto = UserParamsDto
+                .builder()
+                .firstName("name")
+                .lastName("surname")
+                .mail("test@mail.com")
+                .build();
+
         //then
         assertThrows(NotFoundException.class, () -> userService
                 .updateUser(
-                        "name",
-                        "surname",
-                        "test@test.com",
+                        userParamsDto,
                         1231L)
         );
     }

@@ -33,6 +33,7 @@ public class InitialAdminAccountSetup {
                         .mail("admin@gmail.com")
                         .type(Type.ADMIN)
                         .password(passwordEncoder.encode(CharBuffer.wrap("password")).toCharArray())
+                        .enabled(true)
                         .build();
 
                 userRepository.save(admin);
